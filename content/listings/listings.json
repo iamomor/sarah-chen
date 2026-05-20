@@ -1,0 +1,843 @@
+[
+  {
+    "id": "prop-1",
+    "slug": "5br-westlake-982-scenic-dr",
+    "status": "Active",
+    "listingType": "For Sale",
+    "price": 2850000,
+    "address": {
+      "street": "982 Scenic Drive",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78746",
+      "neighborhood": "Westlake",
+      "lat": 30.292,
+      "lng": -97.822
+    },
+    "details": {
+      "beds": 5,
+      "baths": 4,
+      "halfBaths": 1,
+      "sqft": 5200,
+      "lotSize": 0.75,
+      "yearBuilt": 2022,
+      "garage": 3,
+      "stories": 2,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 150,
+      "propertyTax": 42000,
+      "mlsNumber": "AUS-2026-10001"
+    },
+    "description": "Stunning contemporary estate in the heart of Westlake Hills. This architectural masterpiece features floor-to-ceiling windows, a chef's kitchen with Wolf/Sub-Zero appliances, and an expansive outdoor living area with an infinity pool overlooking the Hill Country. Eanes ISD schools.",
+    "features": [
+      "Infinity Pool",
+      "Chef's Kitchen",
+      "Floor-to-Ceiling Windows",
+      "Wine Cellar",
+      "Smart Home System",
+      "Three-Car Garage",
+      "Hardwood Floors",
+      "Outdoor Kitchen",
+      "Eanes ISD",
+      "Master Suite with Spa",
+      "Gated Entry",
+      "Solar Panels",
+      "Butler's Pantry"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba84999a8593?w=800&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "https://images.unsplash.com/photo-1600210492486-7bb5dd093a27?w=800&q=80",
+      "https://images.unsplash.com/photo-1605204613277-ef33f729241f?w=800&q=80",
+      "https://images.unsplash.com/photo-1512917774010-7aa226275636?w=800&q=80",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80"
+    ],
+    "virtualTourUrl": "https://matterport.com/discover/space/sarah-chen-demo-westlake",
+    "openHouse": {
+      "date": "2026-05-24",
+      "time": "1:00 PM - 4:00 PM"
+    },
+    "daysOnMarket": 12,
+    "listedDate": "2026-05-04"
+  },
+  {
+    "id": "prop-2",
+    "slug": "4br-tarrytown-2415-windsor-rd",
+    "status": "Active",
+    "listingType": "For Sale",
+    "price": 2450000,
+    "address": {
+      "street": "2415 Windsor Road",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78703",
+      "neighborhood": "Tarrytown",
+      "lat": 30.297,
+      "lng": -97.778
+    },
+    "details": {
+      "beds": 4,
+      "baths": 3,
+      "halfBaths": 1,
+      "sqft": 3850,
+      "lotSize": 0.35,
+      "yearBuilt": 1954,
+      "garage": 2,
+      "stories": 2,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 0,
+      "propertyTax": 36000,
+      "mlsNumber": "AUS-2026-10002"
+    },
+    "description": "Exquisite Tarrytown traditional home fully renovated in 2021. This home perfectly blends classic charm with modern luxury. Features include white oak flooring throughout, a designer kitchen, and a lush backyard with mature pecan trees. Walking distance to Casis Elementary.",
+    "features": [
+      "Renovated 2021",
+      "White Oak Floors",
+      "Designer Kitchen",
+      "Mature Trees",
+      "Walkable Neighborhood",
+      "Casis Elementary",
+      "Fireplace",
+      "Screened Porch",
+      "Main Level Master",
+      "Custom Cabinetry",
+      "Marble Countertops",
+      "Professional Landscaping"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "https://images.unsplash.com/photo-1480074568708-1b5c37867623?w=800&q=80",
+      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&q=80",
+      "https://images.unsplash.com/photo-1493666438817-866a91353ca9?w=800&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
+      "https://images.unsplash.com/photo-1600121848594-d86cc4f595e7?w=800&q=80"
+    ],
+    "daysOnMarket": 5,
+    "listedDate": "2026-05-11"
+  },
+  {
+    "id": "prop-3",
+    "slug": "3br-hyde-park-4208-avenue-f",
+    "status": "Active",
+    "listingType": "For Sale",
+    "price": 985000,
+    "address": {
+      "street": "4208 Avenue F",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78751",
+      "neighborhood": "Hyde Park",
+      "lat": 30.302,
+      "lng": -97.728
+    },
+    "details": {
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1850,
+      "lotSize": 0.18,
+      "yearBuilt": 1948,
+      "garage": 1,
+      "stories": 1,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 0,
+      "propertyTax": 14500,
+      "mlsNumber": "AUS-2026-10003"
+    },
+    "description": "Charming Hyde Park bungalow with historic character and thoughtful updates. Original hardwood floors, clawfoot tub, and a beautiful wrap-around porch. The spacious backyard is perfect for entertaining and features a separate studio space.",
+    "features": [
+      "Historic Bungalow",
+      "Wrap-around Porch",
+      "Clawfoot Tub",
+      "Separate Studio",
+      "Original Hardwoods",
+      "Updated Electrical",
+      "Walk to Coffee Shops",
+      "Established Garden",
+      "Gas Cooking",
+      "High Ceilings",
+      "Built-in Bookshelves"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1449844908441-8829872d2607?w=800&q=80",
+      "https://images.unsplash.com/photo-1493809842364-78817add7ffb?w=800&q=80",
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=800&q=80",
+      "https://images.unsplash.com/photo-1505691938895-1758d7eaa511?w=800&q=80",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80",
+      "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80"
+    ],
+    "daysOnMarket": 8,
+    "listedDate": "2026-05-08"
+  },
+  {
+    "id": "prop-4",
+    "slug": "4br-barton-hills-2604-highland-ter",
+    "status": "Under Contract",
+    "listingType": "For Sale",
+    "price": 1200000,
+    "address": {
+      "street": "2604 Highland Terrace",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78704",
+      "neighborhood": "Barton Hills",
+      "lat": 30.245,
+      "lng": -97.785
+    },
+    "details": {
+      "beds": 4,
+      "baths": 3,
+      "sqft": 2400,
+      "lotSize": 0.22,
+      "yearBuilt": 1978,
+      "garage": 2,
+      "stories": 1,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 0,
+      "propertyTax": 18000,
+      "mlsNumber": "AUS-2026-10004"
+    },
+    "description": "Mid-century modern vibes in the sought-after Barton Hills neighborhood. This home features an open floor plan, vaulted ceilings, and large windows that bring the outdoors in. Close to Barton Springs and Zilker Park.",
+    "features": [
+      "Mid-Century Modern",
+      "Open Floor Plan",
+      "Vaulted Ceilings",
+      "Near Zilker Park",
+      "Barton Springs Access",
+      "Renovated Kitchen",
+      "Skylights",
+      "Large Deck",
+      "Energy Efficient",
+      "New Roof 2023",
+      "Native Landscaping"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1513584684031-0da2f0945924?w=800&q=80",
+      "https://images.unsplash.com/photo-1501183638710-841dd1904471?w=800&q=80",
+      "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?w=800&q=80",
+      "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=800&q=80",
+      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800&q=80",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80"
+    ],
+    "daysOnMarket": 22,
+    "listedDate": "2026-04-24"
+  },
+  {
+    "id": "prop-5",
+    "slug": "5br-travis-heights-1102-fairview-rd",
+    "status": "Sold",
+    "listingType": "Sold",
+    "price": 1500000,
+    "address": {
+      "street": "1102 Fairview Road",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78704",
+      "neighborhood": "Travis Heights",
+      "lat": 30.245,
+      "lng": -97.735
+    },
+    "details": {
+      "beds": 5,
+      "baths": 4,
+      "sqft": 3200,
+      "lotSize": 0.28,
+      "yearBuilt": 1935,
+      "garage": 0,
+      "stories": 2,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 0,
+      "propertyTax": 22000,
+      "mlsNumber": "AUS-2026-10005"
+    },
+    "description": "A true Travis Heights gem. This historic home has been meticulously restored and expanded. Features include a stunning kitchen with custom tile work, a master suite with a private balcony, and a backyard oasis with a heritage oak tree.",
+    "features": [
+      "Historic Restoration",
+      "Heritage Oak Tree",
+      "Private Balcony",
+      "Custom Tile",
+      "Walk to SoCo",
+      "Hardwood Floors",
+      "Dual Vanities",
+      "Soaking Tub",
+      "Guest Suite",
+      "Original Fireplace",
+      "Built-ins",
+      "Gourmet Kitchen"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1464146072230-91cabc968266?w=800&q=80",
+      "https://images.unsplash.com/photo-1499916078039-922301b0eb9b?w=800&q=80",
+      "https://images.unsplash.com/photo-1430285561322-7808604715df?w=800&q=80",
+      "https://images.unsplash.com/photo-1512915922686-57c11f9ad6b3?w=800&q=80",
+      "https://images.unsplash.com/photo-1472224371017-08207f84aaae?w=800&q=80",
+      "https://images.unsplash.com/photo-1416331108676-a22ccb276e35?w=800&q=80"
+    ],
+    "daysOnMarket": 14,
+    "listedDate": "2026-04-01"
+  },
+  {
+    "id": "prop-6",
+    "slug": "2br-south-congress-401-academy-dr",
+    "status": "Active",
+    "listingType": "For Sale",
+    "price": 525000,
+    "address": {
+      "street": "401 Academy Drive #204",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78704",
+      "neighborhood": "South Congress",
+      "lat": 30.24,
+      "lng": -97.75
+    },
+    "details": {
+      "beds": 2,
+      "baths": 2,
+      "sqft": 1100,
+      "yearBuilt": 2018,
+      "stories": 1,
+      "propertyType": "Condo"
+    },
+    "financials": {
+      "hoaFee": 450,
+      "propertyTax": 8500,
+      "mlsNumber": "AUS-2026-10006"
+    },
+    "description": "Modern urban living just steps from South Congress. This sleek condo features an open layout, industrial touches, and a private balcony. Building amenities include a rooftop deck with city views and secure parking.",
+    "features": [
+      "Urban Living",
+      "Rooftop Deck",
+      "Private Balcony",
+      "Secure Parking",
+      "Industrial Design",
+      "Walkable to Dining",
+      "Stainless Appliances",
+      "Quartz Countertops",
+      "In-unit Laundry",
+      "Walk-in Closet",
+      "Modern Fixtures"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
+      "https://images.unsplash.com/photo-1493246318656-5bbd4afb09ad?w=800&q=80",
+      "https://images.unsplash.com/photo-1502672023488-70e25813efdf?w=800&q=80",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80",
+      "https://images.unsplash.com/photo-1536376074432-bf12177d4f44?w=800&q=80",
+      "https://images.unsplash.com/photo-1560448204-61dc36dc98c8?w=800&q=80"
+    ],
+    "daysOnMarket": 3,
+    "listedDate": "2026-05-13"
+  },
+  {
+    "id": "prop-7",
+    "slug": "4br-clarksville-1608-w-9th-st",
+    "status": "Active",
+    "listingType": "For Sale",
+    "price": 1800000,
+    "address": {
+      "street": "1608 W 9th Street",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78703",
+      "neighborhood": "Clarksville",
+      "lat": 30.28,
+      "lng": -97.755
+    },
+    "details": {
+      "beds": 4,
+      "baths": 3,
+      "sqft": 2850,
+      "lotSize": 0.15,
+      "yearBuilt": 1925,
+      "garage": 1,
+      "stories": 2,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 0,
+      "propertyTax": 26000,
+      "mlsNumber": "AUS-2026-10007"
+    },
+    "description": "Stunning Clarksville home with a blend of historic architecture and modern amenities. High ceilings, large windows, and a chef's kitchen. Enjoy the vibrant Clarksville lifestyle with shops and restaurants just blocks away.",
+    "features": [
+      "Historic Clarksville",
+      "High Ceilings",
+      "Chef's Kitchen",
+      "Walkable Location",
+      "Hardwood Floors",
+      "Primary Suite Down",
+      "Front Porch",
+      "Landscaped Yard",
+      "Sub-Zero Fridge",
+      "Gas Fireplace",
+      "Built-in Sound System"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1518780664697-55e3ad937233?w=800&q=80",
+      "https://images.unsplash.com/photo-1512917774010-7aa226275636?w=800&q=80",
+      "https://images.unsplash.com/photo-1568605114967-8130f3a36994?w=800&q=80",
+      "https://images.unsplash.com/photo-1570129477492-45c003edd2be?w=800&q=80",
+      "https://images.unsplash.com/photo-1576941089067-2de3c901e126?w=800&q=80",
+      "https://images.unsplash.com/photo-1583608205776-bfd35f0d9f83?w=800&q=80"
+    ],
+    "daysOnMarket": 9,
+    "listedDate": "2026-05-07"
+  },
+  {
+    "id": "prop-8",
+    "slug": "4br-bryker-woods-3205-glenview-ave",
+    "status": "Active",
+    "listingType": "For Sale",
+    "price": 1400000,
+    "address": {
+      "street": "3205 Glenview Avenue",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78703",
+      "neighborhood": "Bryker Woods",
+      "lat": 30.305,
+      "lng": -97.752
+    },
+    "details": {
+      "beds": 4,
+      "baths": 2,
+      "halfBaths": 1,
+      "sqft": 2600,
+      "lotSize": 0.2,
+      "yearBuilt": 1952,
+      "garage": 1,
+      "stories": 2,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 0,
+      "propertyTax": 20000,
+      "mlsNumber": "AUS-2026-10008"
+    },
+    "description": "Lovely home in the heart of Bryker Woods. This traditional property offers plenty of space and a flexible floor plan. The large backyard is an entertainer's dream with a spacious deck and mature trees. Close to medical district and UT.",
+    "features": [
+      "Traditional Home",
+      "Entertainer's Deck",
+      "Mature Trees",
+      "Near Medical District",
+      "Flexible Floor Plan",
+      "Large Yard",
+      "Bonus Room",
+      "Updated Bathrooms",
+      "Original Windows",
+      "Fireplace",
+      "Walk to Shoal Creek"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+      "https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=800&q=80",
+      "https://images.unsplash.com/photo-1598228723793-52759bba239c?w=800&q=80",
+      "https://images.unsplash.com/photo-1592595896551-12b371d546d5?w=800&q=80",
+      "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?w=800&q=80",
+      "https://images.unsplash.com/photo-1512914890251-2f96a9b0bbe2?w=800&q=80"
+    ],
+    "daysOnMarket": 15,
+    "listedDate": "2026-05-01"
+  },
+  {
+    "id": "prop-9",
+    "slug": "3br-rosedale-4512-ramsey-ave",
+    "status": "Coming Soon",
+    "listingType": "For Sale",
+    "price": 1100000,
+    "address": {
+      "street": "4512 Ramsey Avenue",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78756",
+      "neighborhood": "Rosedale",
+      "lat": 30.315,
+      "lng": -97.745
+    },
+    "details": {
+      "beds": 3,
+      "baths": 2,
+      "sqft": 1950,
+      "lotSize": 0.17,
+      "yearBuilt": 1958,
+      "garage": 1,
+      "stories": 1,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 0,
+      "propertyTax": 16000,
+      "mlsNumber": "AUS-2026-10009"
+    },
+    "description": "Coming soon! Stunningly updated mid-century home in Rosedale. Open living area, modern kitchen, and a master suite with walk-in closet. Large, level backyard with room for a pool or ADU.",
+    "features": [
+      "Mid-Century Modern",
+      "Updated Kitchen",
+      "Level Backyard",
+      "Room for Pool",
+      "Rosedale Park Nearby",
+      "Modern Fixtures",
+      "Open Layout",
+      "Laundry Room",
+      "Hardwood Floors",
+      "Quartz Counters",
+      "Smart Thermostat"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1523217582562-09d0def993a6?w=800&q=80",
+      "https://images.unsplash.com/photo-1510798831971-661eb04b3739?w=800&q=80",
+      "https://images.unsplash.com/photo-1613977257363-707ba9348227?w=800&q=80",
+      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&q=80",
+      "https://images.unsplash.com/photo-1493666438817-866a91353ca9?w=800&q=80",
+      "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80"
+    ],
+    "daysOnMarket": 0,
+    "listedDate": "2026-05-16"
+  },
+  {
+    "id": "prop-10",
+    "slug": "4br-bouldin-creek-908-w-mary-st",
+    "status": "Active",
+    "listingType": "For Sale",
+    "price": 1650000,
+    "address": {
+      "street": "908 W Mary Street",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78704",
+      "neighborhood": "Bouldin Creek",
+      "lat": 30.25,
+      "lng": -97.755
+    },
+    "details": {
+      "beds": 4,
+      "baths": 3,
+      "halfBaths": 1,
+      "sqft": 3100,
+      "lotSize": 0.14,
+      "yearBuilt": 2015,
+      "garage": 2,
+      "stories": 2,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 0,
+      "propertyTax": 24000,
+      "mlsNumber": "AUS-2026-10010"
+    },
+    "description": "Modern luxury in Bouldin Creek. This custom-built home features high-end finishes, an open kitchen with an island, and a rooftop deck with panoramic city views. Walking distance to South First and SoCo.",
+    "features": [
+      "Modern Luxury",
+      "Rooftop Deck",
+      "City Views",
+      "Custom Finishes",
+      "Walkable Location",
+      "Chef's Kitchen",
+      "Island Seating",
+      "Master with Balcony",
+      "Contemporary Lighting",
+      "Energy Efficient",
+      "Two-Car Garage",
+      "Tankless Water Heater"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1512918728675-ed5a9ecdebfd?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba84999a8593?w=800&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "https://images.unsplash.com/photo-1600210492486-7bb5dd093a27?w=800&q=80",
+      "https://images.unsplash.com/photo-1605204613277-ef33f729241f?w=800&q=80"
+    ],
+    "daysOnMarket": 7,
+    "listedDate": "2026-05-09"
+  },
+  {
+    "id": "prop-11",
+    "slug": "6br-westlake-2101-wild-cat-hollow",
+    "status": "Under Contract",
+    "listingType": "For Sale",
+    "price": 2750000,
+    "address": {
+      "street": "2101 Wild Cat Hollow",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78746",
+      "neighborhood": "Westlake",
+      "lat": 30.298,
+      "lng": -97.835
+    },
+    "details": {
+      "beds": 6,
+      "baths": 5,
+      "halfBaths": 1,
+      "sqft": 5100,
+      "lotSize": 1.2,
+      "yearBuilt": 1998,
+      "garage": 3,
+      "stories": 2,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 250,
+      "propertyTax": 38000,
+      "mlsNumber": "AUS-2026-10011"
+    },
+    "description": "Spacious family estate on a private 1.2-acre lot in Westlake Hills. This home features multiple living areas, a large kitchen, and a primary suite on the main level. The backyard includes a pool, spa, and plenty of space to play.",
+    "features": [
+      "Private Lot",
+      "Pool and Spa",
+      "Eanes ISD",
+      "Multiple Living Areas",
+      "Primary on Main",
+      "Three-Car Garage",
+      "High Ceilings",
+      "Fireplace",
+      "Walk-in Pantry",
+      "Study/Office",
+      "Large Deck",
+      "Lush Landscaping"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1512917774010-7aa226275636?w=800&q=80",
+      "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?w=800&q=80",
+      "https://images.unsplash.com/photo-1580538328010-3fef0748b183?w=800&q=80",
+      "https://images.unsplash.com/photo-1480074568708-1b5c37867623?w=800&q=80",
+      "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?w=800&q=80",
+      "https://images.unsplash.com/photo-1493666438817-866a91353ca9?w=800&q=80"
+    ],
+    "daysOnMarket": 35,
+    "listedDate": "2026-04-11"
+  },
+  {
+    "id": "prop-12",
+    "slug": "4br-tarrytown-1804-edgecliff-ter",
+    "status": "Sold",
+    "listingType": "Sold",
+    "price": 2100000,
+    "address": {
+      "street": "1804 Edgecliff Terrace",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78703",
+      "neighborhood": "Tarrytown",
+      "lat": 30.29,
+      "lng": -97.77
+    },
+    "details": {
+      "beds": 4,
+      "baths": 3,
+      "halfBaths": 1,
+      "sqft": 3400,
+      "lotSize": 0.3,
+      "yearBuilt": 1965,
+      "garage": 2,
+      "stories": 1,
+      "propertyType": "Single Family"
+    },
+    "financials": {
+      "hoaFee": 0,
+      "propertyTax": 31000,
+      "mlsNumber": "AUS-2026-10012"
+    },
+    "description": "Beautifully updated Tarrytown home with classic lines and a modern interior. The open layout is perfect for family living and entertaining. Features include a gourmet kitchen, a spacious master suite, and a lovely backyard with a pool.",
+    "features": [
+      "Tarrytown Classic",
+      "Gourmet Kitchen",
+      "Pool",
+      "Open Floor Plan",
+      "Casis Elementary",
+      "Master Suite",
+      "Custom Built-ins",
+      "Hardwood Floors",
+      "Modern Lighting",
+      "Fireplace",
+      "Screened Porch",
+      "Landscaped Backyard"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba84999a8593?w=800&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "https://images.unsplash.com/photo-1600210492486-7bb5dd093a27?w=800&q=80",
+      "https://images.unsplash.com/photo-1605204613277-ef33f729241f?w=800&q=80",
+      "https://images.unsplash.com/photo-1512917774010-7aa226275636?w=800&q=80"
+    ],
+    "daysOnMarket": 11,
+    "listedDate": "2026-03-15"
+  },
+  {
+    "id": "prop-13",
+    "slug": "3br-south-congress-810-w-live-oak-st",
+    "status": "Active",
+    "listingType": "For Sale",
+    "price": 750000,
+    "address": {
+      "street": "810 W Live Oak Street",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78704",
+      "neighborhood": "South Congress",
+      "lat": 30.242,
+      "lng": -97.755
+    },
+    "details": {
+      "beds": 3,
+      "baths": 2,
+      "halfBaths": 1,
+      "sqft": 1650,
+      "yearBuilt": 2020,
+      "garage": 1,
+      "stories": 2,
+      "propertyType": "Townhouse"
+    },
+    "financials": {
+      "hoaFee": 125,
+      "propertyTax": 11000,
+      "mlsNumber": "AUS-2026-10013"
+    },
+    "description": "Modern townhouse just off South Congress. This end-unit features high ceilings, designer finishes, and a private fenced yard. Walking distance to the best shops and restaurants in 78704.",
+    "features": [
+      "Modern Townhouse",
+      "End Unit",
+      "Fenced Yard",
+      "Designer Finishes",
+      "High Ceilings",
+      "Quartz Countertops",
+      "Stainless Appliances",
+      "Tankless Water Heater",
+      "Energy Efficient",
+      "Walkable Location",
+      "Primary with Balcony"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
+      "https://images.unsplash.com/photo-1493246318656-5bbd4afb09ad?w=800&q=80",
+      "https://images.unsplash.com/photo-1502672023488-70e25813efdf?w=800&q=80",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80",
+      "https://images.unsplash.com/photo-1536376074432-bf12177d4f44?w=800&q=80",
+      "https://images.unsplash.com/photo-1560448204-61dc36dc98c8?w=800&q=80"
+    ],
+    "daysOnMarket": 4,
+    "listedDate": "2026-05-12"
+  },
+  {
+    "id": "prop-14",
+    "slug": "2br-hyde-park-811-e-43rd-st",
+    "status": "Active",
+    "listingType": "For Sale",
+    "price": 485000,
+    "address": {
+      "street": "811 E 43rd Street #102",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78751",
+      "neighborhood": "Hyde Park",
+      "lat": 30.302,
+      "lng": -97.72
+    },
+    "details": {
+      "beds": 2,
+      "baths": 1,
+      "sqft": 950,
+      "yearBuilt": 1985,
+      "stories": 1,
+      "propertyType": "Condo"
+    },
+    "financials": {
+      "hoaFee": 325,
+      "propertyTax": 7200,
+      "mlsNumber": "AUS-2026-10014"
+    },
+    "description": "Charming condo in the heart of Hyde Park. This unit features an updated kitchen, wood floors, and a private patio. The complex includes a pool and laundry facilities. Quiet location close to UT and downtown.",
+    "features": [
+      "Hyde Park Charm",
+      "Updated Kitchen",
+      "Wood Floors",
+      "Private Patio",
+      "Complex Pool",
+      "Near UT Campus",
+      "Walkable Neighborhood",
+      "Assigned Parking",
+      "Low Maintenance",
+      "Ceiling Fans",
+      "Built-in Shelving"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=800&q=80",
+      "https://images.unsplash.com/photo-1493246318656-5bbd4afb09ad?w=800&q=80",
+      "https://images.unsplash.com/photo-1502672023488-70e25813efdf?w=800&q=80",
+      "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80",
+      "https://images.unsplash.com/photo-1536376074432-bf12177d4f44?w=800&q=80",
+      "https://images.unsplash.com/photo-1560448204-61dc36dc98c8?w=800&q=80"
+    ],
+    "daysOnMarket": 20,
+    "listedDate": "2026-04-26"
+  },
+  {
+    "id": "prop-15",
+    "slug": "3br-bouldin-creek-1402-s-2nd-st",
+    "status": "Active",
+    "listingType": "For Sale",
+    "price": 825000,
+    "address": {
+      "street": "1402 S 2nd Street",
+      "city": "Austin",
+      "state": "TX",
+      "zip": "78704",
+      "neighborhood": "Bouldin Creek",
+      "lat": 30.252,
+      "lng": -97.752
+    },
+    "details": {
+      "beds": 3,
+      "baths": 2,
+      "halfBaths": 1,
+      "sqft": 1750,
+      "yearBuilt": 2024,
+      "garage": 1,
+      "stories": 2,
+      "propertyType": "Townhouse"
+    },
+    "financials": {
+      "hoaFee": 150,
+      "propertyTax": 12500,
+      "mlsNumber": "AUS-2026-10015"
+    },
+    "description": "Brand new construction in Bouldin Creek. This contemporary townhouse offers a bright, open living space, a gourmet kitchen, and a private master suite. High-end finishes and energy-efficient systems throughout.",
+    "features": [
+      "New Construction 2024",
+      "Modern Design",
+      "Gourmet Kitchen",
+      "Open Living Space",
+      "Master Suite",
+      "Energy Efficient",
+      "Private Yard",
+      "Designer Tile",
+      "Hardwood Floors",
+      "Quartz Countertops",
+      "Central Heat/Air",
+      "Smart Home Ready"
+    ],
+    "photos": [
+      "https://images.unsplash.com/photo-1512917774010-7aa226275636?w=800&q=80",
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&q=80",
+      "https://images.unsplash.com/photo-1600047509807-ba84999a8593?w=800&q=80",
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=800&q=80",
+      "https://images.unsplash.com/photo-1600210492486-7bb5dd093a27?w=800&q=80",
+      "https://images.unsplash.com/photo-1605204613277-ef33f729241f?w=800&q=80"
+    ],
+    "daysOnMarket": 2,
+    "listedDate": "2026-05-14"
+  }
+]

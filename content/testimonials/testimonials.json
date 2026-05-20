@@ -1,0 +1,140 @@
+[
+  {
+    "id": "test-1",
+    "authorName": "Dr. Michael Sterling",
+    "authorPhoto": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop",
+    "role": "Buyer",
+    "rating": 5,
+    "text": "Sarah's expertise in the Westlake market is unparalleled. In a high-stakes bidding war with six other offers, her creative strategy and personal connection with the listing agent secured our dream home without us being the highest bidder. She managed the entire 30-day closing process with clinical precision, ensuring every inspection and repair negotiation was handled in our favor.",
+    "date": "2026-03-12",
+    "neighborhood": "Westlake",
+    "source": "Google",
+    "featured": true
+  },
+  {
+    "id": "test-2",
+    "authorName": "Elena Rodriguez",
+    "authorPhoto": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=200&h=200&fit=crop",
+    "role": "Seller",
+    "rating": 5,
+    "text": "We were nervous about selling our Tarrytown home in a shifting market, but Sarah's data-driven approach put us at ease. Her staging team transformed our space, and we went under contract in just 4 days for $75,000 over our asking price. Her negotiation skills during the option period saved us thousands in potential repairs, making for a truly seamless transition.",
+    "date": "2026-01-15",
+    "neighborhood": "Tarrytown",
+    "source": "Google",
+    "featured": true
+  },
+  {
+    "id": "test-3",
+    "authorName": "James & Sarah Whitaker",
+    "authorPhoto": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=200&h=200&fit=crop",
+    "role": "Both",
+    "rating": 5,
+    "text": "Sarah Chen is the gold standard for Austin real estate. She synchronized the sale of our Travis Heights bungalow and the purchase of our new Barton Hills estate perfectly, managing two complex closings within 48 hours of each other. Her deep network of contractors and inspectors proved invaluable during the due diligence phase, and her communication never faltered.",
+    "date": "2025-11-20",
+    "neighborhood": "Barton Hills",
+    "source": "Google",
+    "featured": true
+  },
+  {
+    "id": "test-4",
+    "authorName": "Marcus Thorne",
+    "authorPhoto": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop",
+    "role": "Buyer",
+    "rating": 5,
+    "text": "As a first-time buyer in Hyde Park, I was overwhelmed by the competitive nature of the neighborhood. Sarah spent months educating me on the market, eventually finding an off-market opportunity that fit my budget perfectly. Her persistence and 'client-first' attitude made what could have been a stressful 6-month search feel like a masterclass in local real estate.",
+    "date": "2026-04-05",
+    "neighborhood": "Hyde Park",
+    "source": "Direct",
+    "featured": true
+  },
+  {
+    "id": "test-5",
+    "authorName": "Linda Chang",
+    "authorPhoto": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop",
+    "role": "Buyer",
+    "rating": 5,
+    "text": "Sarah's local knowledge of Tarrytown is incredible; she knows the history of almost every street. She helped us navigate a complex relocation from California, coordinating everything virtually until we were ready to sign. Her offer strategy was brilliant, helping us beat out multiple cash offers by focusing on the seller's specific timing needs.",
+    "date": "2026-02-14",
+    "neighborhood": "Tarrytown",
+    "source": "Google",
+    "featured": false
+  },
+  {
+    "id": "test-6",
+    "authorName": "David & Emily Chen",
+    "authorPhoto": "https://images.unsplash.com/photo-1535713875002-d1d0cf3e7c43?w=200&h=200&fit=crop",
+    "role": "Buyer",
+    "rating": 5,
+    "text": "We worked with Sarah to find a home in Barton Hills during a period of very low inventory. She was patient, never pressured us, and eventually found a pocket listing that checked every single box. Her ability to visualize renovation potential helped us see past some cosmetic issues to find a true diamond in the rough.",
+    "date": "2025-08-30",
+    "neighborhood": "Barton Hills",
+    "source": "Google",
+    "featured": false
+  },
+  {
+    "id": "test-7",
+    "authorName": "Robert Vance",
+    "role": "Seller",
+    "rating": 5,
+    "text": "Selling a high-end property in Westlake requires a specific set of skills, and Sarah possesses all of them. Her marketing materials were editorial-quality, attracting the right demographic of buyers immediately. We sold in under 2 weeks for full asking price, and the entire process was handled with the utmost professionalism and discretion.",
+    "date": "2025-06-12",
+    "neighborhood": "Westlake",
+    "source": "Zillow",
+    "featured": false
+  },
+  {
+    "id": "test-8",
+    "authorName": "Sophie Laurent",
+    "role": "Buyer",
+    "rating": 5,
+    "text": "Sarah made our move to Travis Heights so much easier than we expected. She has an eye for design and architecture that many agents lack, which was crucial for us finding a home with character. Her negotiation on the price was firm and successful, getting us into our new home well under the initial appraisal value.",
+    "date": "2025-04-22",
+    "neighborhood": "Travis Heights",
+    "source": "Google",
+    "featured": false
+  },
+  {
+    "id": "test-9",
+    "authorName": "Kevin & Mia Foster",
+    "role": "Buyer",
+    "rating": 5,
+    "text": "Searching for a home while living out of state is a challenge, but Sarah was our eyes and ears on the ground in Austin. She did detailed video walkthroughs of multiple Hyde Park properties, pointing out both the pros and the potential red flags. We trusted her completely, and the home we ultimately bought exceeded our expectations when we finally saw it in person.",
+    "date": "2024-12-05",
+    "neighborhood": "Hyde Park",
+    "source": "Zillow",
+    "featured": false
+  },
+  {
+    "id": "test-10",
+    "authorName": "Jonathan Wu",
+    "role": "Seller",
+    "rating": 5,
+    "text": "I chose Sarah to sell my modern home in Barton Hills because of her reputation for high-end marketing. She didn't disappoint—the professional photography and video tour were spectacular. We received multiple offers within the first 48 hours and closed at a record price-per-square-foot for our street. Sarah's attention to detail is truly world-class.",
+    "date": "2024-10-18",
+    "neighborhood": "Barton Hills",
+    "source": "Google",
+    "featured": false
+  },
+  {
+    "id": "test-11",
+    "authorName": "Amanda Miller",
+    "role": "Buyer",
+    "rating": 5,
+    "text": "Sarah is a fierce advocate for her clients. During our search in Travis Heights, she identified issues with a property's foundation that we would have missed, saving us from a massive financial mistake. She eventually found us a much better home and negotiated a significant credit for closing costs. I wouldn't work with anyone else in Austin.",
+    "date": "2024-07-29",
+    "neighborhood": "Travis Heights",
+    "source": "Zillow",
+    "featured": false
+  },
+  {
+    "id": "test-12",
+    "authorName": "The Henderson Family",
+    "role": "Both",
+    "rating": 5,
+    "text": "We've used Sarah for three transactions now, most recently selling our Tarrytown starter home and upgrading to Westlake. She handles the stress of 'buying while selling' so you don't have to. Her market predictions have been spot-on every time, and her professional network makes every step—from mortgage to moving—incredibly simple.",
+    "date": "2024-05-10",
+    "neighborhood": "Westlake",
+    "source": "Google",
+    "featured": false
+  }
+]
