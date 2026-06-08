@@ -86,13 +86,13 @@ export const agentConfig = {
   metaPixelId: process.env.NEXT_PUBLIC_META_PIXEL_ID,
 
   // EmailJS Integration
-  emailjsServiceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-  emailjsPublicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY,
+  emailjsServiceId: process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID ?? "",
+  emailjsPublicKey: process.env.NEXT_PUBLIC_EMAILJS_PUBLIC_KEY ?? "",
   emailjsTemplates: {
-    contact:    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_CONTACT,
-    valuation:  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_VALUATION,
-    showing:    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_SHOWING,
-    newsletter: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_NEWSLETTER,
+    contact:    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_CONTACT ?? "",
+    valuation:  process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_VALUATION ?? "",
+    showing:    process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_SHOWING ?? "",
+    newsletter: process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_NEWSLETTER ?? "",
   },
 
   // Map defaults (used by MapView — change per client deployment)
