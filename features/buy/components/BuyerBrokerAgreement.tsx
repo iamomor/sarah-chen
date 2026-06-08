@@ -6,8 +6,8 @@ import { agentConfig } from "@/config/agent.config";
 
 export default function BuyerBrokerAgreement() {
   return (
-    <section className="py-24 md:py-32 container mx-auto px-6 lg:px-12 max-w-5xl">
-      <div className="bg-white border border-slate-200/80 shadow-[0_30px_70px_rgba(0,0,0,0.02)] p-8 md:p-16 relative overflow-hidden">
+    <section className="py-14 sm:py-20 lg:py-24 container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
+      <div className="bg-white border border-slate-200/80 shadow-[0_30px_70px_rgba(0,0,0,0.02)] p-6 sm:p-10 md:p-16 relative overflow-hidden">
         
         {/* Certified Graphic Accent Lines */}
         <div className="absolute top-0 left-0 right-0 h-1.5 bg-[#c9a96e]" />
@@ -35,7 +35,7 @@ export default function BuyerBrokerAgreement() {
           <div className="h-[1px] w-full bg-slate-100" />
 
           {/* Three-column certified guarantees */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-12">
             
             {/* Guarantee 1 */}
             <div className="space-y-4">
@@ -68,7 +68,7 @@ export default function BuyerBrokerAgreement() {
             </div>
 
             {/* Guarantee 3 */}
-            <div className="space-y-4">
+            <div className="space-y-4 sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto">
               <div className="flex items-center gap-2">
                 <div className="w-7 h-7 bg-[#c9a96e]/10 border border-[#c9a96e]/20 flex items-center justify-center text-[#c9a96e]">
                   <Check className="w-3.5 h-3.5" />

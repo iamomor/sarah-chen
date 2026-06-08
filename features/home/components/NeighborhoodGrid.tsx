@@ -6,6 +6,8 @@ import Image from "next/image";
 import { agentConfig } from "@/config/agent.config";
 import type { Neighborhood } from "@/types";
 
+import { cn } from "@/lib/utils";
+
 export default function NeighborhoodGrid() {
   const dirPath = path.join(process.cwd(), "content/neighborhoods");
   let neighborhoods: Neighborhood[] = [];
@@ -42,8 +44,8 @@ export default function NeighborhoodGrid() {
           <div className="flex items-center gap-3 mb-6">
             <div className="h-[1px] w-8" style={{ backgroundColor: agentConfig.colors.accent }} />
             <span 
-              className="text-[10px] font-bold uppercase tracking-[0.3em]" 
-              style={{ color: agentConfig.colors.accent }}
+              className="text-xs font-bold uppercase tracking-[0.3em]" 
+              style={{ color: agentConfig.colors.primary }}
             >
               The Portfolio
             </span>
@@ -57,7 +59,7 @@ export default function NeighborhoodGrid() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 mb-20">
           {neighborhoods.map((neighborhood, idx) => {
             const imageSrc = (neighborhood.heroImage && neighborhood.heroImage.startsWith('http')) 
               ? neighborhood.heroImage 
@@ -67,7 +69,10 @@ export default function NeighborhoodGrid() {
               <Link 
                 key={neighborhood.id} 
                 href={`/neighborhoods/${neighborhood.slug}`}
-                className="group block relative overflow-hidden aspect-[3/4] bg-gray-100"
+                className={cn(
+                  "group block relative overflow-hidden aspect-[3/4] bg-gray-100",
+                  idx === 2 ? "sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto sm:w-full" : ""
+                )}
               >
                 <Image
                   src={imageSrc}
@@ -80,13 +85,13 @@ export default function NeighborhoodGrid() {
                 {/* Elegant overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a1a1a]/90 via-[#1a1a1a]/20 to-transparent transition-opacity duration-700 group-hover:opacity-90" />
                 
-                <div className="absolute inset-x-0 bottom-0 p-8 md:p-10 text-white flex flex-col items-center text-center transform transition-transform duration-700 translate-y-4 group-hover:translate-y-0">
-                  <h3 className="text-3xl md:text-4xl font-serif mb-4 drop-shadow-md">
+                <div className="absolute inset-x-0 bottom-0 p-6 md:p-8 lg:p-10 text-white flex flex-col items-center text-center transform transition-transform duration-700 translate-y-4 group-hover:translate-y-0">
+                  <h3 className="text-2xl md:text-3xl lg:text-4xl font-serif mb-4 drop-shadow-md">
                     {neighborhood.name}
                   </h3>
                   
                   <div className="flex flex-col items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-700 delay-100">
-                    <span className="text-[10px] font-bold tracking-[0.2em] uppercase" style={{ color: agentConfig.colors.accent }}>
+                    <span className="text-xs font-bold tracking-[0.2em] uppercase" style={{ color: agentConfig.colors.accent }}>
                       From ${neighborhood.stats.avgPrice.toLocaleString()}
                     </span>
                     <span className="w-6 h-[1px] bg-white/30" />

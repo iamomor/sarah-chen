@@ -7,8 +7,8 @@ import { region } from "@/config/region.config";
 
 export default function BuyPerformanceStrip() {
   return (
-    <section className="relative z-30 -mt-16 container mx-auto px-6 lg:px-12 max-w-7xl">
-      <div className="bg-[#1a2744] text-white p-8 md:p-12 shadow-[0_30px_60px_rgba(26,39,68,0.25)] border border-[#c9a96e]/20 relative">
+    <section className="relative z-30 mt-6 sm:mt-0 sm:-mt-12 md:-mt-16 container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
+      <div className="bg-[#1a2744] text-white p-6 sm:p-10 md:p-12 shadow-[0_30px_60px_rgba(26,39,68,0.25)] border border-[#c9a96e]/20 relative">
         {/* Subtle Graphic Texture Pattern */}
         <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
         

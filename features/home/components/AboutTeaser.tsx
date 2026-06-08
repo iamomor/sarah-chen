@@ -1,118 +1,219 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "react-intersection-observer";
-import Image from "next/image";
-import Link from "next/link";
+import { Button } from "@/components/ui/button";
 import { agentConfig } from "@/config/agent.config";
 import { region } from "@/config/region.config";
-import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import { ArrowRight, Award } from "lucide-react";
+import Image from "next/image";
+import Link from "next/link";
+import { useInView } from "react-intersection-observer";
 
 export default function AboutTeaser() {
-  const { colors, stats, name, headshot, headshotAlt, shortBio, title } = agentConfig;
-  
+  const { colors, stats, name, headshot, headshotAlt, shortBio, title } =
+    agentConfig;
+
   const [ref, inView] = useInView({
     triggerOnce: true,
-    threshold: 0.2,
+    threshold: 0.15,
   });
 
+  const credentials = [
+    {
+      value: `${stats.homesSold}+`,
+      label: "Estates Sold",
+    },
+    {
+      value: `${stats.yearsExperience} Yrs`,
+      label: "Experience",
+    },
+    {
+      value: stats.googleRating.toFixed(1),
+      label: "Client Rating",
+    },
+  ];
+
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-8">
-        <div 
+    <section
+      className="py-14 sm:py-20 lg:py-24 overflow-hidden border-b border-black/[0.06] relative"
+      style={{ backgroundColor: colors.background }}
+    >
+      {/* Delicate geometric background line */}
+      <div 
+        className="absolute top-0 right-1/4 w-[1px] h-full opacity-[0.03] pointer-events-none"
+        style={{ backgroundColor: colors.primary }}
+      />
+
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
+        <div
           ref={ref}
-          className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24"
+          className="flex flex-col lg:flex-row items-center gap-14 lg:gap-20"
         >
-          {/* Left: Agent Photo */}
+          {/* Left: Editorial Portrait Asymmetrical Gallery (45%) */}
           <motion.div
-            initial={{ opacity: 0, x: -50 }}
+            initial={{ opacity: 0, x: -40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="w-full lg:w-1/2 relative"
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+            className="w-full lg:w-[45%] relative px-3 sm:px-0"
           >
-            <div className="relative w-full max-w-md mx-auto aspect-[4/5]">
-              <div 
-                className="absolute inset-0 translate-x-4 translate-y-4 rounded-t-full rounded-bl-full"
-                style={{ backgroundColor: colors.accent, opacity: 0.1 }}
+            <div className="relative w-full max-w-md mx-auto">
+              {/* Double-offset framing for an art gallery aesthetic */}
+              <div
+                className="absolute -top-2.5 -left-2.5 sm:-top-4 sm:-left-4 w-full h-full border border-accent/40 rounded-xs pointer-events-none"
+                style={{ borderRadius: "2px" }}
               />
-              <div className="relative h-full w-full overflow-hidden rounded-t-full rounded-bl-full shadow-xl">
+              <div
+                className="absolute -bottom-2.5 -right-2.5 sm:-bottom-4 sm:-right-4 w-full h-full border border-primary/10 rounded-xs pointer-events-none"
+                style={{ borderRadius: "2px" }}
+              />
+
+              {/* Photo container — elegant vertical aspect ratio */}
+              <div 
+                className="relative aspect-[3/4] w-full overflow-hidden shadow-2xl transition-transform duration-700 hover:scale-[1.01]"
+                style={{ borderRadius: "2px" }}
+              >
                 <Image
                   src={headshot}
                   alt={headshotAlt}
                   fill
-                  className="object-cover"
-                  sizes="(max-width: 768px) 100vw, 50vw"
+                  priority
+                  className="object-cover transition-transform duration-700 hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 45vw"
                 />
               </div>
+
+              {/* Float career volume badge */}
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={inView ? { opacity: 1, scale: 1 } : {}}
+                transition={{ delay: 0.6, duration: 0.8 }}
+                className="absolute -bottom-6 -right-6 bg-white px-6 py-4 shadow-xl border border-black/[0.04] rounded-xs hidden md:block"
+                style={{ borderRadius: "2px" }}
+              >
+                <div className="flex items-center gap-4">
+                  <div
+                    className="w-10 h-10 rounded-full flex items-center justify-center"
+                    style={{ backgroundColor: `${colors.primary}06` }}
+                  >
+                    <Award
+                      className="w-5 h-5"
+                      style={{ color: colors.accent }}
+                    />
+                  </div>
+                  <div>
+                    <div
+                      className="text-xl font-serif font-light leading-tight"
+                      style={{ color: colors.primary }}
+                    >
+                      {stats.careerSalesVolume}
+                    </div>
+                    <div
+                      className="text-[9px] font-sans font-bold uppercase tracking-[0.25em]"
+                      style={{ color: colors.muted }}
+                    >
+                      Career Volume
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </motion.div>
 
-          {/* Right: Text Content */}
+          {/* Right: Text Content Editorial Layout (55%) */}
           <motion.div
-            initial={{ opacity: 0, x: 50 }}
+            initial={{ opacity: 0, x: 40 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
-            transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            className="w-full lg:w-1/2"
+            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+            className="w-full lg:w-[55%]"
           >
             <div className="space-y-8 max-w-xl">
-              <div className="space-y-4">
-                <span 
-                  className="uppercase tracking-widest text-sm font-medium"
+              {/* Eyebrow */}
+              <div className="flex items-center gap-3">
+                <span
+                  className="text-[10px] font-sans font-bold uppercase tracking-[0.4em]"
                   style={{ color: colors.accent }}
                 >
-                  Meet {name}
+                  THE ART OF REPRESENTATION
                 </span>
-                
-                <h2 className="text-4xl md:text-5xl font-light text-gray-900 leading-tight">
-                  {title}
-                </h2>
               </div>
-              
-              <p className="text-lg text-gray-600 leading-relaxed font-light">
+
+              {/* Massive, Prestige Headline */}
+              <h2
+                className="text-4xl md:text-5xl lg:text-[54px] font-serif font-light leading-[1.1] tracking-tight"
+                style={{ color: colors.primary }}
+              >
+                Advising with <span className="font-serif italic font-normal text-accent">Discretion.</span> <br />
+                Negotiating with <span className="font-serif italic font-normal text-accent">Objectivity.</span>
+              </h2>
+
+              {/* Sub-label showing current title */}
+              <div
+                className="text-xs font-sans font-bold uppercase tracking-[0.25em]"
+                style={{ color: colors.primary }}
+              >
+                {name} <span className="mx-2 text-accent">|</span> {title}
+              </div>
+
+              {/* Editorial Pull-Quote */}
+              <blockquote
+                className="border-l-[2px] pl-6 py-1"
+                style={{ borderColor: colors.accent }}
+              >
+                <p
+                  className="text-lg md:text-xl font-serif italic leading-relaxed text-foreground/80"
+                >
+                  &ldquo;Every transaction deserves the gravity of fiduciary representation. My clients don&apos;t get standard service — they get an advocate.&rdquo;
+                </p>
+              </blockquote>
+
+              {/* Short Bio */}
+              <p
+                className="text-sm md:text-base leading-relaxed font-sans font-light opacity-80"
+                style={{ color: colors.text }}
+              >
                 {shortBio}
               </p>
 
-              <div className="grid grid-cols-2 md:grid-cols-4 gap-6 py-8 border-y border-gray-100">
-                <div className="space-y-2">
-                  <div className="text-3xl font-light text-gray-900">{stats.careerSalesVolume}</div>
-                  <div className="text-xs font-medium tracking-widest text-gray-500 uppercase">Volume</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-light text-gray-900">{stats.homesSold}</div>
-                  <div className="text-xs font-medium tracking-widest text-gray-500 uppercase">Sold</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-light text-gray-900">{stats.yearsExperience}</div>
-                  <div className="text-xs font-medium tracking-widest text-gray-500 uppercase">Years</div>
-                </div>
-                <div className="space-y-2">
-                  <div className="text-3xl font-light text-gray-900 flex items-center gap-1">
-                    {stats.googleRating}
-                    <svg className="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
-                  </div>
-                  <div className="text-xs font-medium tracking-widest text-gray-500 uppercase">Rating</div>
-                </div>
+              {/* Typographic Credentials (No bulky icons) */}
+              <div className="grid grid-cols-3 gap-6 py-6 border-y border-black/[0.06]">
+                {credentials.map((cred, idx) => {
+                  return (
+                    <div key={idx} className="flex flex-col">
+                      <span
+                        className="text-2xl lg:text-3xl font-serif font-light leading-none mb-2"
+                        style={{ color: colors.primary }}
+                      >
+                        {cred.value}
+                      </span>
+                      <span
+                        className="text-[9px] font-sans font-bold uppercase tracking-[0.2em]"
+                        style={{ color: colors.muted }}
+                      >
+                        {cred.label}
+                      </span>
+                    </div>
+                  );
+                })}
               </div>
 
-              <div className="pt-4">
-                <Button 
+              {/* Elegant Button with Dual-State Hover */}
+              <div className="pt-2">
+                <Button
                   asChild
                   size="lg"
-                  className="group rounded-none text-white hover:opacity-90 px-8 py-6 h-auto transition-all duration-300"
-                  style={{ backgroundColor: colors.accent }}
+                  className="rounded-none text-[11px] font-sans font-bold uppercase tracking-[0.25em] px-10 py-5 h-auto transition-all duration-500 group border border-accent"
+                  style={{ 
+                    backgroundColor: colors.accent, 
+                    color: colors.primary,
+                    borderRadius: "2px" 
+                  }}
                 >
-                  <Link href="/about" className="flex items-center gap-3 text-base">
+                  <Link
+                    href="/about"
+                    className="flex items-center gap-3 hover:bg-transparent hover:text-accent"
+                  >
                     Read My Full Story
-                    <svg 
-                      className="w-5 h-5 transition-transform duration-300 group-hover:translate-x-1" 
-                      fill="none" 
-                      viewBox="0 0 24 24" 
-                      stroke="currentColor"
-                    >
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
+                    <ArrowRight className="w-4 h-4 transition-transform duration-300 group-hover:translate-x-1" />
                   </Link>
                 </Button>
               </div>
@@ -123,3 +224,4 @@ export default function AboutTeaser() {
     </section>
   );
 }
+

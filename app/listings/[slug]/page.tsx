@@ -3,15 +3,19 @@ import { Button } from "@/components/ui/button";
 import { agentConfig } from "@/config/agent.config";
 import { region } from "@/config/region.config";
 import listingsData from "@/content/listings/listings.json";
+import { getRealEstateListingSchema, getBreadcrumbSchema } from "@/lib/schema";
 import AgentSidebarCard from "@/features/listings/components/AgentSidebarCard";
 import PropertyCard from "@/features/listings/components/PropertyCard";
 import PropertyGallery from "@/features/listings/components/PropertyGallery";
 import PropertyHeader from "@/features/listings/components/PropertyHeader";
 import PropertyMap from "@/features/listings/components/PropertyMap";
 import ShowingForm from "@/features/listings/components/ShowingForm";
-import MortgageCalculator from "@/features/tools/components/MortgageCalculator";
+import MortgageCalculatorLoader from "@/features/tools/components/MortgageCalculatorLoader";
 import { formatArea, formatPrice, slugify } from "@/lib/utils";
 import type { Property } from "@/types";
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
 import {
   ArrowRight,
   Calendar,
@@ -81,6 +85,71 @@ export default async function ListingPage({ params }: PageProps) {
 
   if (!property) notFound();
 
+  // Load matching neighborhood to get dynamic schools and ratings
+  let neighborhoodData: any = null;
+  const neighborhoodSlug = slugify(property.address.neighborhood);
+  const neighborhoodPath = path.join(
+    process.cwd(),
+    "content/neighborhoods",
+    `${neighborhoodSlug}.md`
+  );
+  if (fs.existsSync(neighborhoodPath)) {
+    try {
+      const fileContents = fs.readFileSync(neighborhoodPath, "utf8");
+      const firstName = agentConfig.name.split(" ")[0];
+      const parsedContents = fileContents
+        .replace(/\{\{agentName\}\}/g, agentConfig.name)
+        .replace(/\{\{agentFirstName\}\}/g, firstName)
+        .replace(/\{\{city\}\}/g, region.defaultCity)
+        .replace(/\{\{state\}\}/g, region.defaultState)
+        .replace(/\{\{regionName\}\}/g, region.regionName);
+      const { data } = matter(parsedContents);
+      neighborhoodData = data;
+    } catch (e) {
+      console.error("Error loading neighborhood for schools in listing page:", e);
+    }
+  }
+
+  const schoolsList = [];
+  if (neighborhoodData?.schools) {
+    if (neighborhoodData.schools.elementary) {
+      schoolsList.push({
+        name: neighborhoodData.schools.elementary,
+        type: "Elementary",
+        grades: "Grades K-5",
+        rating: neighborhoodData.schools.rating || 8,
+      });
+    }
+    if (neighborhoodData.schools.middle) {
+      schoolsList.push({
+        name: neighborhoodData.schools.middle,
+        type: "Middle",
+        grades: "Grades 6-8",
+        rating: neighborhoodData.schools.rating || 8,
+      });
+    }
+    if (neighborhoodData.schools.high) {
+      schoolsList.push({
+        name: neighborhoodData.schools.high,
+        type: "High",
+        grades: "Grades 9-12",
+        rating: neighborhoodData.schools.rating || 8,
+      });
+    }
+  } else {
+    // Default fallback
+    schoolsList.push(
+      {
+        name: "Casis Elementary School",
+        type: "Elementary",
+        grades: "Grades K-5",
+        rating: 9,
+      },
+      { name: "O. Henry Middle School", type: "Middle", grades: "Grades 6-8", rating: 7 },
+      { name: "Austin High School", type: "High", grades: "Grades 9-12", rating: 8 }
+    );
+  }
+
   const breadcrumbItems = [
     { label: "Home", href: "/" },
     { label: "Listings", href: "/listings" },
@@ -102,8 +171,24 @@ export default async function ListingPage({ params }: PageProps) {
     )
     .slice(0, 3);
 
+  const listingSchema = getRealEstateListingSchema(property);
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Home", url: "/" },
+    { name: "Listings", url: "/listings" },
+    { name: property.address.neighborhood, url: `/neighborhoods/${slugify(property.address.neighborhood)}` },
+    { name: property.address.street, url: `/listings/${property.slug}` },
+  ]);
+
   return (
     <main className="min-h-screen bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(listingSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
       {/* Breadcrumb Section */}
       <div className="container mx-auto px-6 lg:px-12 py-8">
         <Breadcrumbs items={breadcrumbItems} />
@@ -230,9 +315,10 @@ export default async function ListingPage({ params }: PageProps) {
                   <Image
                     unoptimized
                     src={property.photos[1]}
-                    alt="Virtual Tour"
+                    alt={`Virtual tour preview — ${property.address.street}`}
                     width={1920}
                     height={1080}
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 66vw, 800px"
                     className="w-full h-full object-cover opacity-40 grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-[1.5s]"
                   />
                 )}
@@ -277,7 +363,7 @@ export default async function ListingPage({ params }: PageProps) {
             {/* SECTION 5: MORTGAGE CALCULATOR */}
             <section id="calculator" className="scroll-mt-32">
               <SectionHeading>Estimate Your Payment</SectionHeading>
-              <MortgageCalculator defaultPrice={property.price} compact />
+              <MortgageCalculatorLoader defaultPrice={property.price} compact />
             </section>
 
             {/* STICKY AGENT CARD (Mobile Only) */}
@@ -292,18 +378,10 @@ export default async function ListingPage({ params }: PageProps) {
                 className="text-sm font-medium mb-8"
                 style={{ color: "#6b7280" }}
               >
-                School data provided by GreatSchools
+                School data provided by {region.schoolRating}
               </p>
               <div className="grid gap-4">
-                {[
-                  {
-                    name: "Casis Elementary School",
-                    type: "Elementary",
-                    rating: 9,
-                  },
-                  { name: "O. Henry Middle School", type: "Middle", rating: 7 },
-                  { name: "Austin High School", type: "High", rating: 8 },
-                ].map((school, i) => (
+                {schoolsList.map((school, i) => (
                   <div
                     key={i}
                     className="flex items-center justify-between p-6 bg-white transition-colors"
@@ -334,7 +412,7 @@ export default async function ListingPage({ params }: PageProps) {
                           className="text-sm font-medium"
                           style={{ color: "#6b7280" }}
                         >
-                          {school.type} · Grades K-5
+                          {school.type} · {school.grades}
                         </p>
                       </div>
                     </div>

@@ -2,8 +2,12 @@ import Footer from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import MobileBottomBar from "@/components/layout/MobileBottomBar";
 import ScrollToTop from "@/components/layout/ScrollToTop";
+import CrispChatLoader from "@/components/layout/CrispChatLoader";
+import Analytics from "@/components/layout/Analytics";
+import CookieBanner from "@/components/layout/CookieBanner";
 import { agentConfig } from "@/config/agent.config";
 import { region } from "@/config/region.config";
+import { getLocalBusinessSchema } from "@/lib/schema";
 import type { Metadata } from "next";
 import { Cormorant_Garamond, Inter } from "next/font/google";
 import { Suspense } from "react";
@@ -58,8 +62,16 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const localBusinessSchema = getLocalBusinessSchema();
+
   return (
-    <html lang={region.language || "en"} className={`${inter.variable} ${cormorant.variable}`} suppressHydrationWarning>
+    <html lang={region.language || "en"} className={`${inter.className} ${cormorant.variable}`} suppressHydrationWarning>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+        />
+      </head>
       <body
         className="antialiased flex flex-col min-h-screen"
         style={{
@@ -72,9 +84,13 @@ export default function RootLayout({
         <Suspense fallback={<div className="h-20 bg-[#1a2744]" />}>
           <Header />
         </Suspense>
-        <main className="flex-grow">{children}</main>
+        <main className="flex-grow pb-[62px] lg:pb-0">{children}</main>
         <Footer />
         <MobileBottomBar />
+        <CrispChatLoader />
+        <CookieBanner />
+        {/* GA4 + Meta Pixel — loads only after cookie consent */}
+        <Analytics />
       </body>
     </html>
   );

@@ -8,11 +8,11 @@ import { agentConfig } from "@/config/agent.config";
 
 export default function BuyBottomCTA() {
   return (
-    <section className="py-24 bg-[#1a2744] text-white text-center relative overflow-hidden">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#1a2744] text-white text-center relative overflow-hidden">
       {/* Decorative Subtle Grid Backdrop */}
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-10 pointer-events-none" />
       
-      <div className="container mx-auto px-6 lg:px-12 max-w-4xl relative z-10 space-y-8">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl relative z-10 space-y-8">
         <div className="flex justify-center items-center gap-2 mb-2">
           <div className="h-[1px] w-6 bg-[#c9a96e]" />
           <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#c9a96e]">

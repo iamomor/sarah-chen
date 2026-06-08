@@ -137,3 +137,32 @@
   margin: 0 !important;
   width: auto !important;
 }
+
+/* ─── Mobile Drawer: reposition shadcn Sheet close button ─────────────── */
+/* The Sheet auto-renders a <button> with data-slot="close" at top-4 right-4.
+   Override to align inside the header row (68px tall = py-5 * 2 + title height) */
+[data-slot="sheet-content"] [data-slot="close"] {
+  position: absolute;
+  top: 14px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(249, 246, 240, 0.6);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: color 0.2s, background 0.2s;
+  border-radius: 0;
+}
+[data-slot="sheet-content"] [data-slot="close"]:hover {
+  color: #c9a96e;
+  background: rgba(201, 169, 110, 0.12);
+  border-color: rgba(201, 169, 110, 0.3);
+}
+
+/* ─── Hide scrollbars on pill nav bars ───────────────────────────────── */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+

@@ -44,7 +44,7 @@ export default function PropertyPreviewModal({
             alt={property.address.street}
             fill
             className="object-cover"
-            priority
+            sizes="(max-width: 768px) 100vw, 480px"
           />
           <div className="absolute top-4 left-4 z-10">
             <div

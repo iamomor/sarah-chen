@@ -1,47 +1,43 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
 import { AnimatePresence, motion } from "framer-motion";
-import { CheckCircle2, Loader2, Lock, Mail, MessageSquare, Phone, User } from "lucide-react";
+import { CheckCircle2, Loader2, Lock, Mail, MessageSquare, Phone, Send, User } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 
 import { Button } from "@/components/ui/button";
 import CustomSelect from "@/components/ui/CustomSelect";
 import { agentConfig } from "@/config/agent.config";
 import { initEmailJS, sendContactForm } from "@/lib/emailjs";
-
-const SUBJECT_OPTIONS = [
-  { value: "Buy a Home", label: "I want to buy a home" },
-  { value: "Sell a Home", label: "I want to sell my home" },
-  { value: "Home Valuation", label: "Request a home valuation" },
-  { value: "Market Update", label: "Get a market update" },
-  { value: "Investment Opportunity", label: "Investment opportunity" },
-  { value: "General Inquiry", label: "General inquiry" },
-];
+import { trackConversion } from "@/components/layout/Analytics";
 
 const contactSchema = z.object({
   firstName: z.string().min(1, "First name is required"),
   lastName: z.string().min(1, "Last name is required"),
   email: z.string().email("Valid email address is required"),
-  phone: z.string().min(10, "Valid phone number is required"),
-  subject: z.string().min(1, "Please select a subject"),
+  phone: z.string().optional(),
+  inquiryType: z.string().min(1, "Please select how we can help"),
+  referralSource: z.string().min(1, "Please let us know how you found us"),
   message: z.string().min(10, "Message must be at least 10 characters"),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
 
 const inputClass =
-  "w-full h-14 px-4 bg-slate-50/50 border border-slate-200/80 rounded-none text-sm text-slate-800 font-light placeholder:text-slate-300 focus:outline-none focus:border-[#c9a96e] focus:bg-white transition-all duration-200";
+  "w-full h-14 px-4 bg-slate-50/50 border border-slate-200/80 rounded-none text-sm text-slate-800 font-light placeholder:text-slate-300 focus:outline-none focus:border-[#c9a96e] focus:bg-white transition-all duration-200 font-sans cursor-pointer";
 
 const labelClass =
   "block text-[10px] font-bold uppercase tracking-widest text-slate-500 mb-2";
 
-export const ContactForm = () => {
+export default function ContactForm() {
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [submittedName, setSubmittedName] = useState("");
+
+  const { contactPage } = agentConfig;
 
   useEffect(() => {
     initEmailJS();
@@ -61,12 +57,14 @@ export const ContactForm = () => {
       lastName: "",
       email: "",
       phone: "",
-      subject: "",
+      inquiryType: "",
+      referralSource: "",
       message: "",
     },
   });
 
-  const subjectValue = watch("subject");
+  const inquiryValue = watch("inquiryType");
+  const referralValue = watch("referralSource");
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
@@ -77,9 +75,17 @@ export const ContactForm = () => {
         lastName: data.lastName,
         email: data.email,
         phone: data.phone,
-        message: `Subject: ${data.subject}\n\n${data.message}`,
+        inquiryType: data.inquiryType,
+        referralSource: data.referralSource,
+        message: data.message,
       });
+      setSubmittedName(data.firstName);
       setIsSubmitted(true);
+      // ── Analytics: GA4 conversion + Meta Pixel Lead ──
+      trackConversion('form_submit_contact', { method: 'ContactForm' });
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead');
+      }
     } catch (error) {
       console.error("Contact form error:", error);
       setSubmitError(
@@ -103,14 +109,14 @@ export const ContactForm = () => {
           <div className="w-20 h-20 bg-[#c9a96e]/10 rounded-full border border-[#c9a96e]/20 flex items-center justify-center mb-6">
             <CheckCircle2 className="w-10 h-10 text-[#c9a96e]" />
           </div>
-          <span className="text-[10px] font-bold text-[#c9a96e] uppercase tracking-[0.3em] mb-3">
+          <span className="text-[10px] font-bold text-[#c9a96e] uppercase tracking-[0.3em] mb-3 font-sans">
             Message Received
           </span>
           <h3 className="text-3xl font-serif text-[#1a2744] font-light mb-3">
-            Thank You for Reaching Out
+            Thanks, {submittedName}!
           </h3>
-          <p className="text-sm text-slate-500 font-light max-w-sm leading-relaxed mb-8">
-            {agentConfig.name} personally reviews every inquiry and will respond within 24 hours.
+          <p className="text-sm text-slate-500 font-light max-w-sm leading-relaxed mb-8 font-sans">
+            {agentConfig.name} personally reviews every inquiry and will be in touch within 24 hours.
             For urgent matters, call{" "}
             <a href={`tel:${agentConfig.phoneRaw}`} className="text-[#c9a96e] font-medium hover:underline">
               {agentConfig.phone}
@@ -118,8 +124,8 @@ export const ContactForm = () => {
             .
           </p>
           <button
-            onClick={() => { setIsSubmitted(false); reset(); }}
-            className="text-xs text-[#c9a96e] font-bold uppercase tracking-widest hover:underline"
+            onClick={() => { setIsSubmitted(false); setSubmittedName(""); reset(); }}
+            className="text-xs cursor-pointer text-[#c9a96e] font-bold uppercase tracking-widest hover:underline font-sans"
           >
             Send Another Message
           </button>
@@ -183,7 +189,7 @@ export const ContactForm = () => {
               </div>
               <div>
                 <label htmlFor="contact-phone" className={labelClass}>
-                  <span className="flex items-center gap-1.5"><Phone className="w-3 h-3" />Phone Number</span>
+                  <span className="flex items-center gap-1.5"><Phone className="w-3 h-3" />Phone <span className="font-normal text-slate-400">(Optional)</span></span>
                 </label>
                 <input
                   id="contact-phone"
@@ -192,27 +198,41 @@ export const ContactForm = () => {
                   {...register("phone")}
                   className={inputClass}
                 />
-                {errors.phone && (
-                  <p className="text-red-500 text-xs mt-1 font-medium">{errors.phone.message}</p>
-                )}
               </div>
             </div>
 
-            {/* Subject */}
-            <div>
-              <label className={labelClass}>How Can We Help?</label>
-              <CustomSelect
-                id="contact-subject"
-                variant="light"
-                options={SUBJECT_OPTIONS}
-                value={subjectValue}
-                onChange={(val) => setValue("subject", val, { shouldValidate: true })}
-                placeholder="Select a subject"
-                error={!!errors.subject}
-              />
-              {errors.subject && (
-                <p className="text-red-500 text-xs mt-1 font-medium">{errors.subject.message}</p>
-              )}
+            {/* Inquiry Type + Referral Source Row */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label className={labelClass}>I Am A</label>
+                <CustomSelect
+                  id="contact-inquiryType"
+                  variant="light"
+                  options={contactPage.inquiryTypes}
+                  value={inquiryValue}
+                  onChange={(val) => setValue("inquiryType", val, { shouldValidate: true })}
+                  placeholder="Select your role"
+                  error={!!errors.inquiryType}
+                />
+                {errors.inquiryType && (
+                  <p className="text-red-500 text-xs mt-1 font-medium">{errors.inquiryType.message}</p>
+                )}
+              </div>
+              <div>
+                <label className={labelClass}>How Did You Hear About Us?</label>
+                <CustomSelect
+                  id="contact-referralSource"
+                  variant="light"
+                  options={contactPage.referralSources}
+                  value={referralValue}
+                  onChange={(val) => setValue("referralSource", val, { shouldValidate: true })}
+                  placeholder="Select source"
+                  error={!!errors.referralSource}
+                />
+                {errors.referralSource && (
+                  <p className="text-red-500 text-xs mt-1 font-medium">{errors.referralSource.message}</p>
+                )}
+              </div>
             </div>
 
             {/* Message */}
@@ -225,7 +245,7 @@ export const ContactForm = () => {
                 rows={5}
                 placeholder="Tell us about your real estate goals..."
                 {...register("message")}
-                className={`${inputClass} h-auto resize-none py-4`}
+                className={`${inputClass} h-auto resize-none py-4 cursor-pointer`}
               />
               {errors.message && (
                 <p className="text-red-500 text-xs mt-1 font-medium">{errors.message.message}</p>
@@ -247,19 +267,21 @@ export const ContactForm = () => {
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="w-full h-14 bg-[#1a2744] hover:bg-[#c9a96e] text-white hover:text-[#1a2744] rounded-none font-bold uppercase tracking-widest text-[10px] transition-all duration-300 flex items-center justify-center gap-2"
+              className="w-full h-14 bg-[#1a2744] hover:bg-[#c9a96e] text-white hover:text-[#1a2744] rounded-none font-bold uppercase tracking-widest text-[10px] transition-all duration-300 flex items-center justify-center gap-2 font-sans !cursor-pointer"
             >
               {isSubmitting ? (
                 <>
                   <Loader2 className="w-4 h-4 animate-spin" /> Sending Message...
                 </>
               ) : (
-                `Send Message to ${agentConfig.name.split(" ")[0]}`
+                <>
+                  <Send className="w-3.5 h-3.5 mr-1 " /> Send Message
+                </>
               )}
             </Button>
 
             {/* Trust footer */}
-            <div className="flex items-center justify-center gap-2 text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] pt-2">
+            <div className="flex items-center justify-center gap-2 text-[9px] font-bold text-slate-400 uppercase tracking-[0.2em] pt-2 font-sans">
               <Lock className="w-3 h-3 text-[#c9a96e]" />
               Your information is private and protected
             </div>
@@ -268,6 +290,4 @@ export const ContactForm = () => {
       )}
     </AnimatePresence>
   );
-};
-
-export default ContactForm;
+}

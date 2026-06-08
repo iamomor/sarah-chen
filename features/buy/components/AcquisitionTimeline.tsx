@@ -59,7 +59,7 @@ export default function AcquisitionTimeline() {
   const SelectedIcon = steps[activeStep].icon;
 
   return (
-    <section className="py-24 md:py-32 bg-[#f9f6f0] border-t border-slate-200/60">
+    <section className="py-16 sm:py-24 md:py-32 bg-[#f9f6f0] border-t border-slate-200/60">
       <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
         
         {/* Section Header */}
@@ -80,14 +80,17 @@ export default function AcquisitionTimeline() {
         </div>
 
         {/* INTERACTIVE CONSOLE GRID */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 max-w-6xl mx-auto items-stretch">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 max-w-6xl mx-auto items-stretch">
           
           {/* Left Column: Interactive Step Selector */}
-          <div className="lg:col-span-5 flex flex-col justify-center space-y-4">
+          <div className="lg:col-span-5 flex flex-row lg:flex-col overflow-x-auto lg:overflow-x-visible pb-4 lg:pb-0 gap-4 snap-x snap-mandatory [-ms-overflow-style:none] [scrollbar-width:none] [&::-webkit-scrollbar]:hidden">
             
             {/* INTERACTIVE USER CUE HELP TAG */}
-            <div className="text-center lg:text-left text-[9px] font-bold uppercase tracking-[0.2em] text-[#c9a96e] animate-pulse pb-2 flex items-center gap-2 justify-center lg:justify-start">
+            <div className="hidden lg:flex text-center lg:text-left text-[9px] font-bold uppercase tracking-[0.2em] text-[#c9a96e] animate-pulse pb-2 items-center gap-2 justify-center lg:justify-start">
               <span>➔ Click a phase below to view strategic deliverables</span>
+            </div>
+            <div className="lg:hidden text-center text-[9px] font-bold uppercase tracking-[0.2em] text-[#c9a96e] animate-pulse pb-2 flex items-center gap-2 justify-center w-full shrink-0">
+              <span>➔ Swipe/Tap a phase to view specifications</span>
             </div>
 
             {steps.map((step, idx) => {
@@ -98,13 +101,13 @@ export default function AcquisitionTimeline() {
                 <button
                   key={step.number}
                   onClick={() => setActiveStep(idx)}
-                  className={`w-full flex items-center justify-between p-5 text-left border transition-all duration-300 rounded-none relative overflow-hidden cursor-pointer group ${
+                  className={`flex items-center justify-between p-4 sm:p-5 text-left border transition-all duration-300 rounded-none relative overflow-hidden cursor-pointer group w-[280px] sm:w-[320px] lg:w-full shrink-0 snap-center ${
                     isActive
                       ? "bg-[#1a2744] text-white border-[#c9a96e] shadow-xl shadow-slate-200"
                       : "bg-white text-[#1a2744] border-slate-200/60 hover:border-[#c9a96e]/30 hover:bg-[#1a2744]/5"
                   }`}
                 >
-                  <div className="flex items-center gap-5">
+                  <div className="flex items-center gap-4 sm:gap-5">
                     {/* Step Selector Circle */}
                     <div
                       className={`w-10 h-10 rounded-none border flex items-center justify-center flex-shrink-0 transition-colors duration-300 ${
@@ -150,7 +153,7 @@ export default function AcquisitionTimeline() {
 
           {/* Right Column: Dynamic Strategic Intelligence Panel */}
           <div className="lg:col-span-7">
-            <div className="bg-white border border-slate-200/60 p-8 md:p-12 shadow-[0_15px_40px_rgba(0,0,0,0.02)] h-full flex flex-col justify-between relative overflow-hidden">
+            <div className="bg-white border border-slate-200/60 p-6 sm:p-8 md:p-12 shadow-[0_15px_40px_rgba(0,0,0,0.02)] h-full flex flex-col justify-between relative overflow-hidden">
               {/* Decorative Subtle Carbon Background */}
               <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-[0.02] pointer-events-none" />
               

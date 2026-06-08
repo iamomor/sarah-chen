@@ -115,7 +115,7 @@ export default function MortgageCalculator({
 
   return (
     <div
-      className={`bg-white p-8 md:p-12 ${
+      className={`bg-white p-4 sm:p-8 md:p-12 ${
         compact ? "" : "transition-all duration-250 ease-out hover:-translate-y-1"
       }`}
       style={
@@ -313,7 +313,7 @@ export default function MortgageCalculator({
           <div
             className={`${
               compact ? "w-full" : "lg:col-span-5"
-            } flex flex-col justify-between p-8 bg-[#f9f6f0] rounded-[4px] border border-black/[0.04]`}
+            } flex flex-col justify-between p-4 sm:p-8 bg-[#f9f6f0] rounded-[4px] border border-black/[0.04]`}
           >
             <div className="space-y-8">
               {/* Main output */}

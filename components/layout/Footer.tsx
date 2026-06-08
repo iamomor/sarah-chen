@@ -210,8 +210,8 @@ const Footer = () => {
         <div className="mt-20 pt-8 pb-12 border-t border-[rgba(249,246,240,0.1)]">
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 mb-8">
             <div
-              className="text-[12px] text-center md:text-left"
-              style={{ color: "rgba(249,246,240,0.4)" }}
+              className="text-xs text-center md:text-left"
+              style={{ color: "rgba(249,246,240,0.7)" }}
             >
               © {currentYear} {agentConfig.name} Realty. All rights reserved.
             </div>
@@ -221,8 +221,8 @@ const Footer = () => {
                 <Link
                   key={link.name}
                   href={link.href}
-                  className="text-[12px] transition-colors hover:text-[#f9f6f0]"
-                  style={{ color: "rgba(249,246,240,0.4)" }}
+                  className="text-xs transition-colors hover:text-[#f9f6f0]"
+                  style={{ color: "rgba(249,246,240,0.7)" }}
                 >
                   {link.name}
                 </Link>
@@ -230,8 +230,8 @@ const Footer = () => {
             </div>
 
             <div
-              className="text-[12px] text-center md:text-right"
-              style={{ color: "rgba(249,246,240,0.4)" }}
+              className="text-xs text-center md:text-right"
+              style={{ color: "rgba(249,246,240,0.7)" }}
             >
               {agentConfig.licenseNumber} | Powered by {agentConfig.brokerage}
             </div>
@@ -241,21 +241,21 @@ const Footer = () => {
           <div className="flex flex-col items-center gap-6">
             {region.idxEnabled && (
               <p
-                className="text-[11px] text-center max-w-3xl mx-auto leading-relaxed"
-                style={{ color: "rgba(249,246,240,0.3)" }}
+                className="text-xs text-center max-w-3xl mx-auto leading-relaxed"
+                style={{ color: "rgba(249,246,240,0.65)" }}
               >
                 {region.compliance}
               </p>
             )}
 
             {region.fairHousingRequired && (
-              <div className="flex items-center gap-3 opacity-30 cursor-default grayscale">
-                <div className="w-5 h-5 border border-white/50 flex items-center justify-center">
-                  <Home size={10} className="text-white/50" />
+              <div className="flex items-center gap-3 cursor-default">
+                <div className="w-5 h-5 border border-white/70 flex items-center justify-center">
+                  <Home size={10} className="text-white/70" />
                 </div>
                 <span
-                  className="text-[10px] uppercase tracking-[2px] font-medium"
-                  style={{ color: "rgba(249,246,240,0.3)" }}
+                  className="text-xs uppercase tracking-[2px] font-medium"
+                  style={{ color: "rgba(249,246,240,0.65)" }}
                 >
                   Equal Housing Opportunity
                 </span>

@@ -1,6 +1,6 @@
 import emailjs from "@emailjs/browser";
 import { agentConfig } from "@/config/agent.config";
-import type { ValuationFormData, ContactFormData, ShowingRequestData } from "@/types";
+import type { ValuationFormData, ContactFormData, ShowingRequestData, MarketReportFormData } from "@/types";
 
 /**
  * Initialize EmailJS with client public key
@@ -33,11 +33,15 @@ export const sendContactForm = async (data: ContactFormData) => {
       from_phone: data.phone || "Not provided",
       phone: data.phone || "Not provided",
       
-      message: data.message,
+      // Lead qualification fields
+      inquiry_type: data.inquiryType || "Not specified",
+      referral_source: data.referralSource || "Not specified",
+      
+      message: `Inquiry Type: ${data.inquiryType || "Not specified"}\nReferral Source: ${data.referralSource || "Not specified"}\n\n${data.message}`,
       notes: data.message,
       
-      subject: `New Contact Request from ${fullName}`,
-      title: `New Contact Request from ${fullName}`,
+      subject: `New Contact Request from ${fullName} (${data.inquiryType || "General"})`,
+      title: `New Contact Request from ${fullName} (${data.inquiryType || "General"})`,
 
     };
 
@@ -378,6 +382,46 @@ export const sendSellerWorksheet = async (data: {
     );
   } catch (error) {
     console.error("EmailJS Seller Worksheet Error:", error);
+    throw error;
+  }
+};
+
+/**
+ * Send Market Report subscription lead to agent inbox
+ */
+export const sendMarketReportRequest = async (data: MarketReportFormData) => {
+  try {
+    const templateParams = {
+      to_name: agentConfig.name,
+      to_email: agentConfig.email,
+
+      // Dual-mapped client contact keys
+      from_name: data.name,
+      name: data.name,
+      from_email: data.email,
+      email: data.email,
+      from_phone: "Not provided",
+      phone: "Not provided",
+
+      // Role and context
+      inquiry_type: `Market Report Subscription (${data.role})`,
+      referral_source: "Market Report Page",
+
+      message: `New Monthly Market Report subscription request.\n\nSubscriber: ${data.name}\nEmail: ${data.email}\nRole: ${data.role}`,
+      notes: `Subscriber: ${data.name}\nEmail: ${data.email}\nRole: ${data.role}`,
+
+      subject: `Market Report Subscriber: ${data.name} (${data.role})`,
+      title: `Market Report Subscriber: ${data.name} (${data.role})`,
+    };
+
+    return await emailjs.send(
+      agentConfig.emailjsServiceId,
+      agentConfig.emailjsTemplates.contact, // standard contact lead template
+      templateParams,
+      agentConfig.emailjsPublicKey
+    );
+  } catch (error) {
+    console.error("EmailJS Market Report Error:", error);
     throw error;
   }
 };

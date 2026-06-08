@@ -1,7 +1,11 @@
 import type { NextConfig } from "next";
+import bundleAnalyzer from "@next/bundle-analyzer";
+
+const withBundleAnalyzer = bundleAnalyzer({
+  enabled: process.env.ANALYZE === "true",
+});
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
@@ -28,13 +32,21 @@ const nextConfig: NextConfig = {
     formats: ["image/avif", "image/webp"],
   },
   experimental: {
-    optimizePackageImports: ["lucide-react", "framer-motion", "embla-carousel-react"],
+    optimizePackageImports: [
+      "lucide-react",
+      "framer-motion",
+      "embla-carousel-react",
+      "react-icons",
+    ],
     workerThreads: false,
     cpus: 1,
   },
   compiler: {
-    removeConsole: process.env.NODE_ENV === "production" ? { exclude: ["error", "warn"] } : false,
+    removeConsole:
+      process.env.NODE_ENV === "production"
+        ? { exclude: ["error", "warn"] }
+        : false,
   },
 };
 
-export default nextConfig;
+export default withBundleAnalyzer(nextConfig);

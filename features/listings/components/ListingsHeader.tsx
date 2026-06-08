@@ -3,13 +3,14 @@ import Link from "next/link";
 import { Home } from "lucide-react";
 
 import { agentConfig } from "@/config/agent.config";
+import { region } from "@/config/region.config";
 
 export default function ListingsHeader() {
   const primaryMarket = agentConfig.markets[0] || "Austin";
-  const city = agentConfig.address.split(",")[2]?.trim() || "Austin";
+  const city = region.defaultCity;
 
   return (
-    <section className="bg-white pt-40 pb-20">
+    <section className="bg-white pt-28 pb-12 sm:pt-36 sm:pb-16 lg:pt-40 lg:pb-20">
       <div className="container mx-auto px-6">
         {/* Breadcrumbs */}
         <div className="flex items-center gap-3 text-[9px] font-bold uppercase tracking-[0.4em] text-muted-foreground/60 mb-10">

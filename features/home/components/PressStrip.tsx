@@ -1,83 +1,69 @@
 "use client";
 
 import { agentConfig } from "@/config/agent.config";
-import React from "react";
+import { motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 
 export default function PressStrip() {
   const pressItems = agentConfig.press;
+  const { colors } = agentConfig;
+
+  const [ref, inView] = useInView({
+    triggerOnce: true,
+    threshold: 0.2,
+  });
 
   if (!pressItems || pressItems.length === 0) return null;
 
-  const cityMatch = agentConfig.address.match(
-    /,\s*([^,]+),\s*[A-Z]{2}\s+\d{5}/,
-  );
-  const city = cityMatch ? cityMatch[1] : "the region";
-  const mainPress = pressItems[0]?.name || "Business Journal";
-
   return (
-    <section className="py-24 bg-white border-y border-gray-100">
-      <div className="container mx-auto px-4 lg:px-8 max-w-4xl text-center">
-        {/* The Quote */}
-        <div className="mb-20 relative">
-          <div className="absolute -top-12 left-1/2 -translate-x-1/2">
-            <svg
-              width="40"
-              height="40"
-              viewBox="0 0 24 24"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-              style={{ color: agentConfig.colors.accent, opacity: 0.2 }}
-            >
-              <path
-                d="M10 11L8 15H11V19H5V15L7 11H5V7H11V11H10ZM20 11L18 15H21V19H15V15L17 11H15V7H21V11H20Z"
-                fill="currentColor"
-              />
-            </svg>
-          </div>
-
-          <h2
-            className="text-3xl md:text-4xl lg:text-5xl font-serif text-gray-900 leading-tight md:leading-snug mb-10 relative z-10"
-            style={{ color: agentConfig.colors.text }}
+    <section
+      ref={ref}
+      className="py-10 sm:py-14 md:py-16 border-y"
+      style={{
+        backgroundColor: colors.background,
+        borderColor: `${colors.text}08`,
+      }}
+    >
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
+        <motion.div
+          initial={{ opacity: 0, y: 15 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-6"
+        >
+          {/* Label */}
+          <span
+            className="text-[10px] font-bold uppercase tracking-[0.4em] shrink-0"
+            style={{ color: colors.muted }}
           >
-            &quot;{agentConfig.name} is consistently ranked among {city}&apos;s
-            top-producing luxury agents, setting new standards for client
-            service and market expertise.&quot;
-          </h2>
+            As Featured In
+          </span>
 
-          <div className="flex items-center justify-center gap-4">
-            <div
-              className="h-[1px] w-6"
-              style={{ backgroundColor: agentConfig.colors.accent }}
-            />
-            <span className="text-[11px] font-bold uppercase tracking-[0.3em] text-gray-900">
-              {mainPress}
-            </span>
-            <div
-              className="h-[1px] w-6"
-              style={{ backgroundColor: agentConfig.colors.accent }}
-            />
-          </div>
-        </div>
+          {/* Separator */}
+          <div
+            className="hidden md:block w-px h-6"
+            style={{ backgroundColor: `${colors.text}15` }}
+          />
 
-        {/* The Press "Logos" (Typography) */}
-        <div className="pt-12 border-t border-gray-100">
-          <p className="text-[10px] font-bold uppercase tracking-[0.4em] text-gray-400 mb-8">
-            Featured In
-          </p>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+          {/* Press names as styled "logos" */}
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-10">
             {pressItems.map((item, idx) => (
-              <a
+              <motion.a
+                key={idx}
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                key={idx}
-                className="text-xl md:text-2xl font-serif text-gray-900 opacity-50 hover:opacity-100 transition-opacity duration-300"
+                initial={{ opacity: 0, y: 10 }}
+                animate={inView ? { opacity: 1, y: 0 } : {}}
+                transition={{ delay: 0.1 + idx * 0.1, duration: 0.6 }}
+                className="text-lg md:text-xl font-bold uppercase tracking-[0.08em] opacity-40 hover:opacity-100 transition-opacity duration-300"
+                style={{ color: colors.text }}
               >
                 {item.name}
-              </a>
+              </motion.a>
             ))}
           </div>
-        </div>
+        </motion.div>
       </div>
     </section>
   );

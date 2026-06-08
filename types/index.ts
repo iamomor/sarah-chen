@@ -95,6 +95,26 @@ export interface Neighborhood {
   bikeScore?: number;
   lat: number;
   lng: number;
+  vibeScores?: {
+    privacy: number;
+    walkability: number;
+    familyFriendly: number;
+    architecture: number;
+    investment: number;
+  };
+  vibeSummary?: string;
+  commuteTime?: string;
+  qna?: {
+    q: string;
+    a: string;
+  }[];
+  // Hero visual scene slider — define 2-4 scenes per neighborhood in the .md frontmatter
+  heroScenes?: {
+    id: string;
+    label: string;    // short tab label, e.g. "The Estates"
+    title: string;    // full caption, e.g. "Luxury Architecture & Estates"
+    url: string;      // Unsplash or /public image URL
+  }[];
 }
 
 // BLOG POST
@@ -130,6 +150,8 @@ export interface ContactFormData {
   lastName: string;
   email: string;
   phone?: string;
+  inquiryType: string;
+  referralSource: string;
   message: string;
 }
 
@@ -170,6 +192,12 @@ export interface SaveSearchData {
   firstName: string;
   frequency: "Instant" | "Daily" | "Weekly";
   searchQuery: string;
+}
+
+export interface MarketReportFormData {
+  name: string;
+  email: string;
+  role: "Buyer" | "Seller" | "Investor" | "Curious";
 }
 
 // NAVIGATION

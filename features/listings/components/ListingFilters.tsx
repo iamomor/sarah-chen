@@ -109,191 +109,211 @@ export default function ListingFilters() {
     <div className="sticky top-[72px] z-40 w-full bg-white/95 backdrop-blur-xl border-b border-border shadow-[0_1px_2px_rgba(0,0,0,0.02)]">
       <div className="container mx-auto px-6 py-5">
         {/* Main Filter Bar */}
-        <div className="flex flex-col lg:flex-row gap-6 items-end lg:items-center">
-          {/* Location Search - Sophisticated Input */}
-          <div className="w-full lg:w-[280px] relative group">
-            <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within:text-accent transition-colors" />
-            <Input
-              placeholder={`Search ${agentConfig.markets[0]}...`}
-              className="pl-7 h-10 bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus-visible:ring-0 focus-visible:border-accent transition-all placeholder:text-muted-foreground/50 placeholder:font-light"
-              value={localFilters.location}
-              onChange={(e) =>
-                setLocalFilters((prev) => ({
-                  ...prev,
-                  location: e.target.value,
-                }))
-              }
-              onBlur={() =>
-                handleFilterChange("location", localFilters.location)
-              }
-              onKeyDown={(e) =>
-                e.key === "Enter" &&
-                handleFilterChange("location", localFilters.location)
-              }
-            />
-          </div>
-
-          {/* Price Range - Minimalist */}
-          <div className="flex items-center gap-4 w-full lg:w-auto">
-            <div className="relative flex-1 lg:w-[130px] group">
-              <span className="absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
-                Min
-              </span>
+        <div className="flex flex-col lg:flex-row gap-5 lg:gap-6 items-stretch lg:items-center">
+          {/* Location Search - Sophisticated Input + Mobile Toggle */}
+          <div className="flex items-center gap-3 w-full lg:w-auto">
+            <div className="relative flex-1 lg:w-[280px] group">
+              <Search className="absolute left-0 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground group-focus-within:text-accent transition-colors" />
               <Input
-                type="number"
-                placeholder="0"
-                className="pl-10 h-10 bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus-visible:ring-0 focus-visible:border-accent transition-all placeholder:text-muted-foreground/30"
-                value={localFilters.minPrice}
+                placeholder={`Search ${agentConfig.markets[0]}...`}
+                className="pl-7 h-10 w-full bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus-visible:ring-0 focus-visible:border-accent transition-all placeholder:text-muted-foreground/50 placeholder:font-light"
+                value={localFilters.location}
                 onChange={(e) =>
                   setLocalFilters((prev) => ({
                     ...prev,
-                    minPrice: e.target.value,
+                    location: e.target.value,
                   }))
                 }
                 onBlur={() =>
-                  handleFilterChange("minPrice", localFilters.minPrice)
+                  handleFilterChange("location", localFilters.location)
+                }
+                onKeyDown={(e) =>
+                  e.key === "Enter" &&
+                  handleFilterChange("location", localFilters.location)
                 }
               />
             </div>
-            <span className="text-border font-light">|</span>
-            <div className="relative flex-1 lg:w-[130px] group">
-              <span className="absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
-                Max
-              </span>
-              <Input
-                type="number"
-                placeholder="No Limit"
-                className="pl-10 h-10 bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus-visible:ring-0 focus-visible:border-accent transition-all placeholder:text-muted-foreground/30"
-                value={localFilters.maxPrice}
-                onChange={(e) =>
-                  setLocalFilters((prev) => ({
-                    ...prev,
-                    maxPrice: e.target.value,
-                  }))
-                }
-                onBlur={() =>
-                  handleFilterChange("maxPrice", localFilters.maxPrice)
-                }
-              />
-            </div>
-          </div>
-
-          {/* Beds & Baths - Refined Selects */}
-          <div className="flex gap-4 w-full lg:w-auto">
-            <Select
-              value={searchParams.get("beds") || "any"}
-              onValueChange={(v) => handleFilterChange("beds", v)}
-            >
-              <SelectTrigger className="h-10 flex-1 lg:w-[100px] bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus:ring-0 focus:border-accent transition-all px-0 hover:border-accent/50">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mr-2">
-                  Beds
-                </span>
-                <SelectValue placeholder="Any" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="any">Any Beds</SelectItem>
-                <SelectItem value="1">1+</SelectItem>
-                <SelectItem value="2">2+</SelectItem>
-                <SelectItem value="3">3+</SelectItem>
-                <SelectItem value="4">4+</SelectItem>
-                <SelectItem value="5">5+</SelectItem>
-              </SelectContent>
-            </Select>
-
-            <Select
-              value={searchParams.get("baths") || "any"}
-              onValueChange={(v) => handleFilterChange("baths", v)}
-            >
-              <SelectTrigger className="h-10 flex-1 lg:w-[100px] bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus:ring-0 focus:border-accent transition-all px-0 hover:border-accent/50">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mr-2">
-                  Baths
-                </span>
-                <SelectValue placeholder="Any" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="any">Any Baths</SelectItem>
-                <SelectItem value="1">1+</SelectItem>
-                <SelectItem value="2">2+</SelectItem>
-                <SelectItem value="3">3+</SelectItem>
-                <SelectItem value="4">4+</SelectItem>
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Property Type & Status */}
-          <div className="flex gap-4 w-full lg:w-auto">
-            <Select
-              value={searchParams.get("type") || "any"}
-              onValueChange={(v) => handleFilterChange("type", v)}
-            >
-              <SelectTrigger className="h-10 flex-1 lg:w-[140px] bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus:ring-0 focus:border-accent transition-all px-0 hover:border-accent/50">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mr-2">
-                  Type
-                </span>
-                <SelectValue placeholder="Any" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="any">Any Type</SelectItem>
-                {PROPERTY_TYPES.map((t) => (
-                  <SelectItem key={t} value={t}>
-                    {t}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-
-            <Select
-              value={searchParams.get("status") || "any"}
-              onValueChange={(v) => handleFilterChange("status", v)}
-            >
-              <SelectTrigger className="h-10 flex-1 lg:w-[140px] bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus:ring-0 focus:border-accent transition-all px-0 hover:border-accent/50">
-                <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mr-2">
-                  Status
-                </span>
-                <SelectValue placeholder="All" />
-              </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="any">All Status</SelectItem>
-                {STATUS_OPTIONS.map((s) => (
-                  <SelectItem key={s} value={s}>
-                    {s}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-
-          {/* Save Search Button */}
-          <Button
-            variant="outline"
-            className="h-10 w-full lg:w-auto gap-3 text-[10px] font-bold uppercase tracking-[0.2em] border-accent/20 text-accent hover:bg-accent hover:text-white transition-all rounded-full px-6"
-            onClick={() => {
-              // We'll use a custom event or a state in the parent.
-              // For now, let's trigger a window event that the parent listens to.
-              window.dispatchEvent(new CustomEvent("open-save-search"));
-            }}
-          >
-            💾 Save Search
-          </Button>
-
-          {/* More Filters Toggle - Elegant Button */}
-          <Button
-            variant="ghost"
-            className={cn(
-              "h-10 w-full lg:w-auto gap-3 text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-transparent hover:text-accent group",
-              isExpanded && "text-accent",
-            )}
-            onClick={() => setIsExpanded(!isExpanded)}
-          >
-            <SlidersHorizontal className="w-3.5 h-3.5" />
-            Advanced
-            <ChevronDown
+            {/* Mobile Filter Toggle */}
+            <Button
+              variant="outline"
+              size="icon"
               className={cn(
-                "w-3.5 h-3.5 transition-transform duration-300",
-                isExpanded && "rotate-180",
+                "lg:hidden h-10 w-10 border-border rounded-none shrink-0",
+                isExpanded && "border-accent text-accent"
               )}
-            />
-          </Button>
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              <SlidersHorizontal className="w-4 h-4" />
+            </Button>
+          </div>
+
+          {/* Collapsible Area for Mobile / Standard Layout for Desktop */}
+          <div
+            className={cn(
+              "w-full lg:w-auto flex-col lg:flex-row gap-5 lg:gap-6 items-stretch lg:items-center lg:flex",
+              isExpanded ? "flex" : "hidden"
+            )}
+          >
+            {/* Price Range - Minimalist */}
+            <div className="flex items-center gap-4 w-full lg:w-auto">
+              <div className="relative flex-1 lg:w-[130px] group">
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+                  Min
+                </span>
+                <Input
+                  type="number"
+                  placeholder="0"
+                  className="pl-10 h-10 bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus-visible:ring-0 focus-visible:border-accent transition-all placeholder:text-muted-foreground/30"
+                  value={localFilters.minPrice}
+                  onChange={(e) =>
+                    setLocalFilters((prev) => ({
+                      ...prev,
+                      minPrice: e.target.value,
+                    }))
+                  }
+                  onBlur={() =>
+                    handleFilterChange("minPrice", localFilters.minPrice)
+                  }
+                />
+              </div>
+              <span className="text-border font-light">|</span>
+              <div className="relative flex-1 lg:w-[130px] group">
+                <span className="absolute left-0 top-1/2 -translate-y-1/2 text-[10px] font-bold text-muted-foreground uppercase tracking-widest">
+                  Max
+                </span>
+                <Input
+                  type="number"
+                  placeholder="No Limit"
+                  className="pl-10 h-10 bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus-visible:ring-0 focus-visible:border-accent transition-all placeholder:text-muted-foreground/30"
+                  value={localFilters.maxPrice}
+                  onChange={(e) =>
+                    setLocalFilters((prev) => ({
+                      ...prev,
+                      maxPrice: e.target.value,
+                    }))
+                  }
+                  onBlur={() =>
+                    handleFilterChange("maxPrice", localFilters.maxPrice)
+                  }
+                />
+              </div>
+            </div>
+
+            {/* Beds & Baths - Refined Selects */}
+            <div className="flex gap-4 w-full lg:w-auto">
+              <Select
+                value={searchParams.get("beds") || "any"}
+                onValueChange={(v) => handleFilterChange("beds", v)}
+              >
+                <SelectTrigger className="h-10 flex-1 lg:w-[100px] bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus:ring-0 focus:border-accent transition-all px-0 hover:border-accent/50">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mr-2">
+                    Beds
+                  </span>
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="any">Any Beds</SelectItem>
+                  <SelectItem value="1">1+</SelectItem>
+                  <SelectItem value="2">2+</SelectItem>
+                  <SelectItem value="3">3+</SelectItem>
+                  <SelectItem value="4">4+</SelectItem>
+                  <SelectItem value="5">5+</SelectItem>
+                </SelectContent>
+              </Select>
+
+              <Select
+                value={searchParams.get("baths") || "any"}
+                onValueChange={(v) => handleFilterChange("baths", v)}
+              >
+                <SelectTrigger className="h-10 flex-1 lg:w-[100px] bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus:ring-0 focus:border-accent transition-all px-0 hover:border-accent/50">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mr-2">
+                    Baths
+                  </span>
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="any">Any Baths</SelectItem>
+                  <SelectItem value="1">1+</SelectItem>
+                  <SelectItem value="2">2+</SelectItem>
+                  <SelectItem value="3">3+</SelectItem>
+                  <SelectItem value="4">4+</SelectItem>
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Property Type & Status */}
+            <div className="flex gap-4 w-full lg:w-auto">
+              <Select
+                value={searchParams.get("type") || "any"}
+                onValueChange={(v) => handleFilterChange("type", v)}
+              >
+                <SelectTrigger className="h-10 flex-1 lg:w-[140px] bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus:ring-0 focus:border-accent transition-all px-0 hover:border-accent/50">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mr-2">
+                    Type
+                  </span>
+                  <SelectValue placeholder="Any" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="any">Any Type</SelectItem>
+                  {PROPERTY_TYPES.map((t) => (
+                    <SelectItem key={t} value={t}>
+                      {t}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+
+              <Select
+                value={searchParams.get("status") || "any"}
+                onValueChange={(v) => handleFilterChange("status", v)}
+              >
+                <SelectTrigger className="h-10 flex-1 lg:w-[140px] bg-transparent border-t-0 border-x-0 border-b border-border rounded-none focus:ring-0 focus:border-accent transition-all px-0 hover:border-accent/50">
+                  <span className="text-[10px] font-bold uppercase tracking-widest text-muted-foreground mr-2">
+                    Status
+                  </span>
+                  <SelectValue placeholder="All" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectItem value="any">All Status</SelectItem>
+                  {STATUS_OPTIONS.map((s) => (
+                    <SelectItem key={s} value={s}>
+                      {s}
+                    </SelectItem>
+                  ))}
+                </SelectContent>
+              </Select>
+            </div>
+
+            {/* Save Search Button */}
+            <Button
+              variant="outline"
+              className="h-10 w-full lg:w-auto gap-3 text-[10px] font-bold uppercase tracking-[0.2em] border-accent/20 text-accent hover:bg-accent hover:text-white transition-all rounded-full px-6"
+              onClick={() => {
+                window.dispatchEvent(new CustomEvent("open-save-search"));
+              }}
+            >
+              💾 Save Search
+            </Button>
+
+            {/* Advanced Filters Toggle - Desktop Only */}
+            <Button
+              variant="ghost"
+              className={cn(
+                "hidden lg:flex h-10 w-full lg:w-auto gap-3 text-[10px] font-bold uppercase tracking-[0.2em] transition-all hover:bg-transparent hover:text-accent group",
+                isExpanded && "text-accent",
+              )}
+              onClick={() => setIsExpanded(!isExpanded)}
+            >
+              <SlidersHorizontal className="w-3.5 h-3.5" />
+              Advanced
+              <ChevronDown
+                className={cn(
+                  "w-3.5 h-3.5 transition-transform duration-300",
+                  isExpanded && "rotate-180",
+                )}
+              />
+            </Button>
+          </div>
 
           {/* Right Side - Sort (Visible on Large Screens) */}
           <div className="hidden xl:block ml-auto border-l border-border pl-6">

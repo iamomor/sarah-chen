@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://sarahchenrealty.com
+
+# Sitemaps
+Sitemap: https://sarahchenrealty.com/sitemap.xml

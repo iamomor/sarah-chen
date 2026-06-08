@@ -58,7 +58,7 @@ export default function ValuationPage() {
             </span>
             <div className="h-[1px] w-8 bg-[#c9a96e]" />
           </div>
-          <h1 className="text-5xl md:text-6xl xl:text-7xl font-medium tracking-tight leading-tight text-[#1a2744]">
+          <h1 className="text-3xl sm:text-4.5xl md:text-6xl xl:text-7xl font-medium tracking-tight leading-tight text-[#1a2744]">
             {copy.title}{" "}
             <span className="font-serif italic font-light text-[#c9a96e]">
               {copy.titleAccent}
@@ -172,7 +172,7 @@ export default function ValuationPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
             {copy.processSteps.map((step) => (
               <div
                 key={step.step}
@@ -214,7 +214,7 @@ export default function ValuationPage() {
               </Link>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
               {soldListings.map((property) => (
                 <PropertyCard key={property.id} property={property} />
               ))}

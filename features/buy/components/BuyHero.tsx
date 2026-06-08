@@ -22,6 +22,7 @@ export default function BuyHero() {
           fill
           className="object-cover object-center scale-105"
           priority
+          sizes="100vw"
         />
       </div>
 
@@ -40,20 +41,20 @@ export default function BuyHero() {
             <div className="h-[1px] w-8 bg-[#c9a96e]" />
           </div>
           
-          <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-tight">
+          <h1 className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight text-white leading-tight">
             Buy Your Dream {agentConfig.mapCenter.city} <br />
             <span className="font-serif italic font-light text-[#c9a96e]">Home With Confidence</span>
           </h1>
           
-          <p className="text-base sm:text-lg md:text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed">
+          <p className="text-sm sm:text-base md:text-xl text-white/90 font-light max-w-2xl mx-auto leading-relaxed">
             Acquire premier real estate with {agentConfig.mapCenter.city}&apos;s most trusted luxury {region.agentTitle}. Gain private off-market access and elite fiduciary protection.
           </p>
 
           {/* CTA - CONVERSION FOCUSED */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-8">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 pt-6">
             <Button
               asChild
-              className="w-full sm:w-auto bg-[#c9a96e] hover:bg-[#b8985e] text-[#1a2744] rounded-none px-10 py-7 h-auto text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-xl shadow-black/20"
+              className="w-full sm:w-auto bg-[#c9a96e] hover:bg-[#b8985e] text-[#1a2744] rounded-none px-6 py-4.5 sm:px-10 sm:py-6 h-auto text-[10px] sm:text-xs font-bold tracking-[0.2em] uppercase transition-all duration-300 shadow-xl shadow-black/20"
             >
               <Link href="/listings">
                 Start Your Search <ArrowRight className="w-4 h-4 ml-2" />

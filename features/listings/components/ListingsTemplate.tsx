@@ -362,10 +362,10 @@ export default function ListingsTemplate() {
               )}
             </>
           ) : (
-            <div className="relative flex flex-col lg:flex-row gap-0 h-[60vh] lg:h-[calc(100vh-180px)] bg-white border border-border overflow-hidden rounded-sm shadow-2xl">
+            <div className="relative flex flex-col lg:flex-row gap-0 h-[calc(100vh-230px)] sm:h-[70vh] lg:h-[calc(100vh-180px)] bg-white border border-border overflow-hidden rounded-sm shadow-2xl">
               
               {/* Refined Side Panel (Editorial Sidebar) */}
-              <div className="w-full lg:w-[420px] xl:w-[480px] shrink-0 h-[350px] lg:h-full bg-white z-20 flex flex-col border-r border-border">
+              <div className="relative z-20 w-full lg:w-[420px] xl:w-[480px] shrink-0 h-[220px] sm:h-[280px] lg:h-full bg-white flex flex-col border-r border-border">
                 <div className="p-6 border-b border-border flex items-center justify-between">
                   <div>
                     <h3 className="text-xl font-medium text-foreground">

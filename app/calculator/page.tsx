@@ -1,5 +1,5 @@
 import { agentConfig } from "@/config/agent.config";
-import MortgageCalculator from "@/features/tools/components/MortgageCalculator";
+import MortgageCalculatorLoader from "@/features/tools/components/MortgageCalculatorLoader";
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
@@ -36,7 +36,7 @@ export default function CalculatorPage() {
       <section className="py-20 sm:py-28 bg-[#f9f6f0]">
         <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
           <div className="grid grid-cols-1 gap-12">
-            <MortgageCalculator />
+            <MortgageCalculatorLoader />
           </div>
         </div>
       </section>

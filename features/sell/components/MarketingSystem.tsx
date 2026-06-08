@@ -25,10 +25,10 @@ const marketingServices = [
 
 export default function MarketingSystem() {
   return (
-    <section className="py-24 bg-[#1a2744] text-white border-t border-slate-800 relative overflow-hidden">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#1a2744] text-white border-t border-slate-800 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 pointer-events-none" />
       
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl relative z-10">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="flex justify-center items-center gap-2">
             <div className="h-[1px] w-6 bg-[#c9a96e]" />

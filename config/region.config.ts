@@ -25,6 +25,7 @@ export const regionConfigs = {
     postalCodeLabel: "Zip Code",
     defaultCity: "Austin",
     defaultState: "TX",
+    regionName: "Central Texas",
     sqftOptions: ["<1000", "1000-1500", "1500-2000", "2000-2500", "2500-3500", "3500+"],
   },
   AU: {
@@ -51,6 +52,7 @@ export const regionConfigs = {
     postalCodeLabel: "Postcode",
     defaultCity: "Sydney",
     defaultState: "NSW",
+    regionName: "New South Wales",
     sqftOptions: ["<100", "100-150", "150-200", "200-250", "250-350", "350+"],
   },
   CA: {
@@ -77,6 +79,7 @@ export const regionConfigs = {
     postalCodeLabel: "Postal Code",
     defaultCity: "Toronto",
     defaultState: "ON",
+    regionName: "Greater Toronto",
     sqftOptions: ["<1000", "1000-1500", "1500-2000", "2000-2500", "2500-3500", "3500+"],
   },
   UK: {
@@ -103,6 +106,7 @@ export const regionConfigs = {
     postalCodeLabel: "Postcode",
     defaultCity: "London",
     defaultState: "Greater London",
+    regionName: "Central London",
     sqftOptions: ["<1000", "1000-1500", "1500-2000", "2000-2500", "2500-3500", "3500+"],
   },
 };

@@ -68,6 +68,7 @@ export default function PropertyGallery({
           alt={`${propertyAddress} - Main View`}
           fill
           priority
+          sizes="100vw"
           className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
         />
         {/* Subtle gradient overlay at the bottom for the button */}
@@ -99,6 +100,7 @@ export default function PropertyGallery({
               alt={`${propertyAddress} - View 1`}
               fill
               priority
+              sizes="50vw"
               className="object-cover group-hover:scale-105 transition-transform duration-700"
             />
           </div>
@@ -113,6 +115,7 @@ export default function PropertyGallery({
                 src={photos[1]}
                 alt={`${propertyAddress} - View 2`}
                 fill
+                sizes="25vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
             )}
@@ -128,6 +131,7 @@ export default function PropertyGallery({
                 src={photos[2]}
                 alt={`${propertyAddress} - View 3`}
                 fill
+                sizes="25vw"
                 className="object-cover group-hover:scale-105 transition-transform duration-700"
               />
             )}
@@ -144,6 +148,7 @@ export default function PropertyGallery({
                   src={photos[3]}
                   alt={`${propertyAddress} - View 4`}
                   fill
+                  sizes="25vw"
                   className="object-cover group-hover:scale-105 transition-transform duration-700"
                 />
               )}
@@ -224,6 +229,7 @@ export default function PropertyGallery({
                   src={photos[currentIndex]}
                   alt={`${propertyAddress} - Large View`}
                   fill
+                  sizes="100vw"
                   className="object-contain"
                 />
               </motion.div>
@@ -263,8 +269,9 @@ export default function PropertyGallery({
                 >
                   <Image
                     src={photo}
-                    alt={`Thumbnail ${index + 1}`}
+                    alt={`${propertyAddress} - Thumbnail ${index + 1}`}
                     fill
+                    sizes="60px"
                     className="object-cover rounded-none"
                   />
                 </button>

@@ -6,6 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { region } from "@/config/region.config";
 import type { ValuationFormData } from "@/types";
 import { initEmailJS, sendValuationRequest } from "@/lib/emailjs";
+import { trackConversion } from "@/components/layout/Analytics";
 
 import ProgressBar from "./ProgressBar";
 import StepAddress from "./StepAddress";
@@ -59,6 +60,11 @@ export default function ValuationForm() {
 
     setGlobalData((prev) => ({ ...prev, ...data }));
     setCurrentStep("success");
+    // ── Analytics: GA4 conversion + Meta Pixel Lead ──
+    trackConversion('form_submit_valuation', { method: 'ValuationForm' });
+    if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+      window.fbq('track', 'Lead');
+    }
   };
 
   return (

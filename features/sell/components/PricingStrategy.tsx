@@ -6,14 +6,14 @@ import { region } from "@/config/region.config";
 
 export default function PricingStrategy() {
   return (
-    <section className="py-24 bg-[#1a2744] text-white relative overflow-hidden">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#1a2744] text-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 pointer-events-none" />
       
-      <div className="container mx-auto px-6 lg:px-12 max-w-6xl relative z-10">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           {/* Visual Block */}
-          <div className="lg:col-span-5 relative order-2 lg:order-1">
-            <div className="absolute -top-6 -left-6 w-full h-full border border-[#c9a96e]/30 pointer-events-none z-0 translate-x-3 translate-y-3" />
+          <div className="lg:col-span-5 relative order-2 lg:order-1 px-2 sm:px-0">
+            <div className="absolute -top-3 -left-3 sm:-top-6 sm:-left-6 w-full h-full border border-[#c9a96e]/30 pointer-events-none z-0 translate-x-3 translate-y-3" />
             <div className="relative z-10 aspect-[4/3] w-full bg-slate-800 overflow-hidden shadow-none border border-white/10 rounded-none">
               <Image
                 src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?auto=format&fit=crop&w=800&q=80"
@@ -21,9 +21,10 @@ export default function PricingStrategy() {
                 fill
                 className="object-cover"
                 quality={85}
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
               />
             </div>
-            <div className="absolute -bottom-4 -right-4 bg-[#c9a96e] text-[#1a2744] py-3 px-5 relative z-20 inline-block font-sans text-[9px] uppercase tracking-widest font-bold rounded-none">
+            <div className="absolute -bottom-2 -right-2 sm:-bottom-4 sm:-right-4 bg-[#c9a96e] text-[#1a2744] py-2 px-4 sm:py-3 sm:px-5 relative z-20 inline-block font-sans text-[8px] sm:text-[9px] uppercase tracking-widest font-bold rounded-none">
               Comparative Analysis Protocol
             </div>
           </div>

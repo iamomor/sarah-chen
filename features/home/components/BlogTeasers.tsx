@@ -39,15 +39,15 @@ const placeholders = [
 
 export default function BlogTeasers() {
   return (
-    <section className="py-24 bg-white overflow-hidden">
-      <div className="container mx-auto px-4 lg:px-8 max-w-7xl">
+    <section className="py-14 sm:py-20 lg:py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="max-w-2xl">
             <div className="flex items-center gap-3 mb-4">
               <div className="h-[1px] w-8" style={{ backgroundColor: agentConfig.colors.accent }} />
               <span 
-                className="text-[10px] font-bold uppercase tracking-[0.3em]" 
-                style={{ color: agentConfig.colors.accent }}
+                className="text-xs font-bold uppercase tracking-[0.3em]" 
+                style={{ color: agentConfig.colors.primary }}
               >
                 Editorial
               </span>
@@ -59,17 +59,17 @@ export default function BlogTeasers() {
           <Link 
             href="/blog"
             className="text-sm font-bold uppercase tracking-[0.2em] hover:opacity-70 transition-opacity whitespace-nowrap pb-1 border-b"
-            style={{ color: agentConfig.colors.accent, borderColor: agentConfig.colors.accent }}
+            style={{ color: agentConfig.colors.primary, borderColor: agentConfig.colors.primary }}
           >
             View All Articles
           </Link>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-16">
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 xl:gap-16">
           {/* Featured Post (Left Side) */}
           <Link 
             href={`/blog/${placeholders[0].slug}`} 
-            className="group flex-1 cursor-pointer flex flex-col"
+            className="group lg:col-span-2 cursor-pointer flex flex-col"
           >
             <div className="relative aspect-[16/9] lg:aspect-[4/3] w-full overflow-hidden mb-8 bg-gray-100">
               <Image
@@ -88,7 +88,7 @@ export default function BlogTeasers() {
                   {placeholders[0].category}
                 </span>
                 <span className="w-1 h-1 rounded-full bg-gray-300" />
-                <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                <span className="text-xs font-bold uppercase tracking-wider text-gray-600">
                   {placeholders[0].date}
                 </span>
               </div>
@@ -102,14 +102,14 @@ export default function BlogTeasers() {
                 {placeholders[0].excerpt}
               </p>
 
-              <span className="text-[11px] font-bold uppercase tracking-wider mt-auto text-gray-400">
+              <span className="text-xs font-bold uppercase tracking-wider mt-auto text-gray-600">
                 {placeholders[0].readTime} read
               </span>
             </div>
           </Link>
 
           {/* Secondary Posts (Right Side) */}
-          <div className="lg:w-1/3 flex flex-col pt-8 lg:pt-0 lg:border-l border-gray-100 lg:pl-16">
+          <div className="lg:col-span-1 flex flex-col pt-8 lg:pt-0 lg:border-l border-gray-100 lg:pl-8 xl:pl-16">
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-gray-900 mb-8 pb-4 border-b border-gray-100">
               More Stories
             </h3>
@@ -126,7 +126,7 @@ export default function BlogTeasers() {
                       {post.category}
                     </span>
                     <span className="w-1 h-1 rounded-full bg-gray-300" />
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
+                    <span className="text-xs font-bold uppercase tracking-wider text-gray-600">
                       {post.date}
                     </span>
                   </div>
@@ -140,7 +140,7 @@ export default function BlogTeasers() {
                     {post.excerpt}
                   </p>
 
-                  <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400">
+                  <span className="text-xs font-bold uppercase tracking-wider text-gray-600">
                     {post.readTime} read
                   </span>
                 </Link>
@@ -151,10 +151,10 @@ export default function BlogTeasers() {
               <Link 
                 href="/blog"
                 className="inline-flex items-center gap-4 text-sm font-bold uppercase tracking-[0.2em] hover:opacity-70 transition-opacity"
-                style={{ color: agentConfig.colors.accent }}
+                style={{ color: agentConfig.colors.primary }}
               >
                 <span>Read All Articles</span>
-                <span className="w-12 h-[1px]" style={{ backgroundColor: agentConfig.colors.accent }} />
+                <span className="w-12 h-[1px]" style={{ backgroundColor: agentConfig.colors.primary }} />
               </Link>
             </div>
           </div>

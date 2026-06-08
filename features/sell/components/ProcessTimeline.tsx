@@ -13,8 +13,8 @@ const timelinePhases = [
 
 export default function ProcessTimeline() {
   return (
-    <section className="py-24 bg-white relative overflow-hidden">
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+    <section className="py-14 sm:py-20 lg:py-24 bg-white relative overflow-hidden">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-20">
           <div className="flex justify-center items-center gap-2">
             <div className="h-[1px] w-6 bg-[#c9a96e]" />

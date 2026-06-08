@@ -14,6 +14,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { agentConfig } from "@/config/agent.config";
 import { initEmailJS, sendShowingRequest } from "@/lib/emailjs";
+import { trackConversion } from "@/components/layout/Analytics";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { motion } from "framer-motion";
 import { Calendar, CheckCircle2, Loader2 } from "lucide-react";
@@ -80,6 +81,11 @@ export default function ShowingForm({ propertyAddress, mlsNumber }: ShowingFormP
         message: values.message,
       });
       setIsSubmitted(true);
+      // ── Analytics: GA4 conversion + Meta Pixel Lead ──
+      trackConversion('form_submit_showing', { method: 'ShowingForm' });
+      if (typeof window !== 'undefined' && typeof window.fbq === 'function') {
+        window.fbq('track', 'Lead');
+      }
     } catch (error) {
       console.error("Showing request error:", error);
       toast.error("Submission failed", {
@@ -183,7 +189,7 @@ export default function ShowingForm({ propertyAddress, mlsNumber }: ShowingFormP
                   </FormLabel>
                   <FormControl>
                     <Input
-                      placeholder="(512) 555-0123"
+                      placeholder={agentConfig.phone}
                       {...field}
                       className="h-[48px] border-gray-200 focus:border-[#c9a96e] rounded-[2px] transition-colors bg-white shadow-none focus-visible:ring-0 focus-visible:ring-offset-0"
                     />

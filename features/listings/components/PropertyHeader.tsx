@@ -5,12 +5,22 @@ import { region } from "@/config/region.config";
 import { formatArea, formatPrice, slugify } from "@/lib/utils";
 import type { Property } from "@/types";
 import Link from "next/link";
+import { useEffect } from "react";
+import { trackConversion } from "@/components/layout/Analytics";
 
 interface PropertyHeaderProps {
   property: Property;
 }
 
 export default function PropertyHeader({ property }: PropertyHeaderProps) {
+  useEffect(() => {
+    trackConversion("listing_view", {
+      id: property.id,
+      title: property.address.street,
+      neighborhood: property.address.neighborhood,
+      price: property.price,
+    });
+  }, [property]);
   return (
     <div 
       className="flex flex-col items-center text-center py-16 lg:py-20"

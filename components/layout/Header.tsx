@@ -24,10 +24,69 @@ import { agentConfig } from "@/config/agent.config";
 import { cn, slugify } from "@/lib/utils";
 import type { NavItem } from "@/types";
 import { motion } from "framer-motion";
-import { ChevronDown, Map, Menu, Phone } from "lucide-react";
+import {
+  BookOpen,
+  Calculator,
+  Calendar,
+  CheckCircle2,
+  ChevronDown,
+  ChevronRight,
+  ClipboardList,
+  Compass,
+  FileText,
+  Key,
+  LayoutGrid,
+  Map,
+  MapPin,
+  Menu,
+  MessageSquare,
+  Newspaper,
+  Phone,
+  Search,
+  Sparkles,
+  TrendingUp,
+  Tv,
+  User,
+  Users
+} from "lucide-react";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 import { useEffect, useMemo, useState } from "react";
+
+// Mapped Icons for Categories in the Mobile Drawer
+const categoryIcons: Record<string, React.ElementType> = {
+  BUY: Key,
+  SELL: TrendingUp,
+  SEARCH: Search,
+  AREAS: MapPin,
+  ABOUT: User,
+};
+
+// Mapped Icons for Sub-items in the Mobile Drawer
+const itemIcons: Record<string, React.ElementType> = {
+  "Find a Home": Search,
+  "Buyer's Guide": FileText,
+  "Mortgage Calculator": Calculator,
+  "First-Time Buyer Resources": BookOpen,
+  "What's My Home Worth?": TrendingUp,
+  "Seller's Guide": ClipboardList,
+  "Marketing Presentation": Tv,
+  "Recent Sales": CheckCircle2,
+  "Search All Listings": Search,
+  "Map Search": Map,
+  "Open Houses": Calendar,
+  "New Developments": Sparkles,
+  "View All Neighborhoods": LayoutGrid,
+  "Meet Team": Users,
+  "Press & Media": Newspaper,
+  "Client Reviews": MessageSquare,
+};
+
+const getItemIcon = (label: string) => {
+  if (itemIcons[label]) return itemIcons[label];
+  if (label.startsWith("Meet ")) return User;
+  return MapPin;
+};
 
 const Header = () => {
   const pathname = usePathname();
@@ -298,37 +357,43 @@ const Header = () => {
               <Button
                 variant="ghost"
                 size="icon"
+                aria-label="Open navigation menu"
                 className="text-white hover:bg-white/10"
               >
-                <Menu className="w-8 h-8" />
+                <Menu className="w-8 h-8" aria-hidden="true" />
               </Button>
             </SheetTrigger>
             <SheetContent
               side="right"
-              className="w-full sm:max-w-md bg-[#1a2744] border-l border-[#c9a96e]/20 p-0 flex flex-col"
+              className="w-[88vw] sm:max-w-[400px] bg-[#1a2744] border-l border-[#c9a96e]/20 p-0 flex flex-col overflow-hidden"
             >
-              <SheetHeader className="p-8 border-b border-white/5">
-                <SheetTitle className="text-left">
+              {/* Drawer Header — Logo left, close btn handled by Sheet */}
+              <SheetHeader className="flex flex-row items-center justify-between px-6 py-5 border-b border-white/8 shrink-0">
+                <SheetTitle className="text-left flex-1 min-w-0">
                   <Link
                     href="/"
                     onClick={() => setMobileMenuOpen(false)}
                     className="flex flex-col"
                   >
-                    <span className="text-2xl font-serif font-bold text-white tracking-tight">
+                    <span className="text-xl font-serif font-bold text-white tracking-tight leading-tight">
                       {agentConfig.name.toUpperCase()}
                     </span>
-                    <span className="text-[10px] tracking-[0.3em] text-[#c9a96e] font-medium uppercase mt-1">
+                    <span className="text-[9px] tracking-[0.3em] text-[#c9a96e] font-medium uppercase mt-0.5">
                       Luxury Real Estate
                     </span>
                   </Link>
                 </SheetTitle>
+                {/* shadcn Sheet provides its own close btn via SheetClose, rendered at top-right absolute;
+                    we override its position via CSS to sit inside the header row */}
               </SheetHeader>
 
-              <div className="flex-1 overflow-y-auto px-8 py-6">
+              <div className="flex-1 overflow-y-auto px-5 py-4">
                 <Accordion type="single" collapsible className="w-full">
                   {navItems.map((category) => {
                     const isCatActive =
                       navItems.indexOf(category) === activeCategoryIndex;
+                    const CategoryIcon = categoryIcons[category.label] || Compass;
+
                     return (
                       <AccordionItem
                         key={category.label}
@@ -337,16 +402,21 @@ const Header = () => {
                       >
                         <AccordionTrigger
                           className={cn(
-                            "text-[13px] font-semibold py-6 hover:no-underline uppercase tracking-[0.2em] transition-colors",
+                            "text-[12px] font-bold py-5 hover:no-underline uppercase tracking-[0.22em] transition-colors flex items-center justify-between w-full",
                             isCatActive ? "text-[#c9a96e]" : "text-white/90",
                           )}
                         >
-                          {category.label}
+                          <div className="flex items-center gap-3">
+                            <CategoryIcon className="w-4 h-4 text-[#c9a96e]" style={{ color: agentConfig.colors.accent }} />
+                            <span>{category.label}</span>
+                          </div>
                         </AccordionTrigger>
                         <AccordionContent>
-                          <div className="flex flex-col gap-2 pb-6 pl-4 border-l border-white/5">
+                          <div className="flex flex-col gap-1 pb-6 pl-4 border-l border-white/5">
                             {category.children?.map((item) => {
                               const isItemActive = item.href === activeHref;
+                              const ItemIcon = getItemIcon(item.label);
+
                               return (
                                 <Link
                                   key={item.label}
@@ -360,16 +430,15 @@ const Header = () => {
                                     );
                                   }}
                                   className={cn(
-                                    "text-[15px] py-4 px-4 transition-all duration-300 flex items-center justify-between group",
+                                    "text-[14px] py-3.5 px-4 transition-all duration-300 flex items-center gap-3.5 group rounded-sm",
                                     isItemActive
-                                      ? "text-[#c9a96e] bg-white/5 font-semibold"
-                                      : "text-white/60 hover:text-white",
+                                      ? "text-[#c9a96e] bg-white/5 font-medium"
+                                      : "text-white/65 hover:text-[#c9a96e] hover:bg-white/5",
                                   )}
                                 >
-                                  <span>{item.label}</span>
-                                  {item.label === "Map Search" && (
-                                    <Map className="w-4 h-4 opacity-40" />
-                                  )}
+                                  <ItemIcon className="w-4 h-4 shrink-0 opacity-60 group-hover:opacity-100 transition-opacity" />
+                                  <span className="flex-grow">{item.label}</span>
+                                  <ChevronRight className="w-3.5 h-3.5 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all text-[#c9a96e]" style={{ color: agentConfig.colors.accent }} />
                                 </Link>
                               );
                             })}
@@ -381,17 +450,17 @@ const Header = () => {
                 </Accordion>
               </div>
 
-              <div className="p-10 border-t border-white/5 bg-black/20 space-y-6">
+              <div className="px-5 py-5 border-t border-white/8 bg-black/25 space-y-3 shrink-0">
                 <a
                   href={`tel:${agentConfig.phoneRaw}`}
-                  className="flex items-center justify-center gap-4 w-full py-5 text-lg font-medium border border-white/10 bg-white/5 text-white transition-all active:scale-[0.98]"
+                  className="flex items-center justify-center gap-3 w-full py-4 text-sm font-medium border border-white/15 bg-white/5 text-white transition-all active:scale-[0.98] tracking-wide"
                 >
-                  <Phone className="w-5 h-5 text-[#c9a96e]" />
+                  <Phone className="w-4 h-4 text-[#c9a96e]" />
                   <span>{agentConfig.phone}</span>
                 </a>
                 <Button
                   asChild
-                  className="w-full rounded-none py-6 border-2 border-[#c9a96e] bg-transparent text-[#c9a96e] !hover:bg-[#c9a96e] hover:text-[#1a2744] transition-all duration-500 text-lg font-bold uppercase tracking-[0.2em] h-auto"
+                  className="w-full rounded-none py-4 border-2 border-[#c9a96e] bg-transparent text-[#c9a96e] hover:bg-[#c9a96e] hover:text-[#1a2744] transition-all duration-300 text-[11px] font-bold uppercase tracking-[0.25em] h-auto"
                 >
                   <a
                     href={agentConfig.bookingUrl}

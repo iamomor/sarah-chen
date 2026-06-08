@@ -17,8 +17,8 @@ export default function BuyerTestimonials() {
     .slice(0, 3);
 
   return (
-    <section className="py-24 bg-[#f9f6f0] border-t border-slate-200/60">
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#f9f6f0] border-t border-slate-200/60">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
           <div className="space-y-3">
             <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#c9a96e] block">
@@ -32,7 +32,7 @@ export default function BuyerTestimonials() {
           <ButtonLink />
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {buyerTestimonials.map((testimonial, idx) => (
             <motion.div
               key={testimonial.id}
@@ -40,7 +40,9 @@ export default function BuyerTestimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.1, duration: 0.5 }}
-              className="bg-white p-8 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.01)] flex flex-col justify-between hover:border-[#c9a96e]/30 transition-all duration-300"
+              className={`bg-white p-8 border border-slate-200/80 shadow-[0_10px_35px_rgba(0,0,0,0.01)] flex flex-col justify-between hover:border-[#c9a96e]/30 transition-all duration-300 ${
+                idx === 2 ? "sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto sm:w-full" : ""
+              }`}
             >
               <div className="space-y-6">
                 {/* Rating Stars */}
@@ -71,6 +73,7 @@ export default function BuyerTestimonials() {
                       alt={testimonial.authorName}
                       fill
                       className="object-cover"
+                      sizes="44px"
                     />
                   </div>
                 ) : (

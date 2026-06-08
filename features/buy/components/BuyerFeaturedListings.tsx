@@ -16,8 +16,8 @@ export default function BuyerFeaturedListings() {
     .slice(0, 3);
 
   return (
-    <section className="py-24 bg-white border-y border-slate-200/60">
-      <div className="container mx-auto px-6 lg:px-12 max-w-7xl">
+    <section className="py-14 sm:py-20 lg:py-24 bg-white border-y border-slate-200/60">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl">
         
         {/* Header Section */}
         <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
@@ -47,9 +47,14 @@ export default function BuyerFeaturedListings() {
         </div>
 
         {/* 3-Column Grid rendering real listings */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
           {activeListings.map((property, idx) => (
-            <PropertyCard key={property.id} property={property} index={idx} />
+            <div
+              key={property.id}
+              className={idx === 2 ? "sm:col-span-2 lg:col-span-1 sm:max-w-md sm:mx-auto sm:w-full" : ""}
+            >
+              <PropertyCard property={property} index={idx} />
+            </div>
           ))}
         </div>
 

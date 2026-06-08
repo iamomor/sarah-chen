@@ -59,6 +59,7 @@ export default function StepSuccess({ name, zip }: StepSuccessProps) {
             alt={agentConfig.name}
             fill
             className="object-cover"
+            sizes="64px"
           />
         </div>
         <div>

@@ -5,6 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import { agentConfig } from "@/config/agent.config";
+import { region } from "@/config/region.config";
 import { initEmailJS, sendSellerWorksheet } from "@/lib/emailjs";
 
 import { Button } from "@/components/ui/button";
@@ -68,9 +69,9 @@ export default function SellerWorksheet() {
   };
 
   return (
-    <section className="py-24 bg-[#f9f6f0] border-t border-slate-200/50" id="worksheet">
-      <div className="container mx-auto px-6 lg:px-12 max-w-4xl">
-        <div className="bg-[#1a2744] text-white p-8 md:p-14 shadow-none relative border border-[#c9a96e]/20 overflow-hidden rounded-none">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#f9f6f0] border-t border-slate-200/50" id="worksheet">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-4xl">
+        <div className="bg-[#1a2744] text-white p-6 sm:p-10 md:p-14 shadow-none relative border border-[#c9a96e]/20 overflow-hidden rounded-none">
           <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 pointer-events-none" />
           
           <div className="relative z-10 space-y-10">
@@ -130,7 +131,15 @@ export default function SellerWorksheet() {
                       </Label>
                       <Input
                         id="ws-address"
-                        placeholder="e.g. 1200 S Congress Ave, Austin, TX 78704"
+                        placeholder={
+                          region.currency === "GBP"
+                            ? "e.g. 12 Baker St, London, W1U 3BD"
+                            : region.currency === "AUD"
+                            ? "e.g. 44 Market St, Sydney, NSW 2000"
+                            : region.currency === "CAD"
+                            ? "e.g. 250 Yonge St, Toronto, ON M5B 2L7"
+                            : "e.g. 1200 S Congress Ave, Austin, TX 78704"
+                        }
                         className="bg-white/5 border-white/15 text-white placeholder:text-white/30 rounded-none h-12 focus:border-[#c9a96e] focus:ring-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-sm font-light font-sans"
                         {...register("address")}
                       />

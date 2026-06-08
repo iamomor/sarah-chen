@@ -119,7 +119,7 @@ export default function PropertyCard({
           {/* Status Badge */}
           <Badge
             className={cn(
-              "absolute top-3 left-3 z-10 font-bold uppercase tracking-[0.05em] text-[10px] px-2.5 py-1 rounded-sm shadow-sm",
+              "absolute top-3 left-3 z-10 font-bold uppercase tracking-[0.05em] text-xs px-2.5 py-1 rounded-sm shadow-sm",
               getStatusColor(property.status),
             )}
           >
@@ -169,7 +169,7 @@ export default function PropertyCard({
           )}
         </div>
 
-        <CardContent className="p-5 flex-grow">
+        <CardContent className="p-4 sm:p-5 flex-grow">
           <div className="space-y-1 mb-4">
             <h3
               className={cn(
@@ -189,30 +189,30 @@ export default function PropertyCard({
             </div>
           </div>
 
-          <div className="flex items-center justify-between text-slate-700 py-3 border-y border-slate-100 mb-4">
+          <div className="flex items-center justify-between text-slate-700 py-2.5 sm:py-3 border-y border-slate-100 mb-3 sm:mb-4">
             <div className="flex items-center gap-1.5">
-              <Bed className="w-4 h-4 text-slate-400" />
+              <Bed className="w-4 h-4 text-slate-500" />
               <span className="text-xs font-bold">
                 {property.details.beds}{" "}
-                <span className="text-slate-400 font-normal">bd</span>
+                <span className="text-slate-600 font-normal">bd</span>
               </span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Bath className="w-4 h-4 text-slate-400" />
+              <Bath className="w-4 h-4 text-slate-500" />
               <span className="text-xs font-bold">
                 {property.details.baths}{" "}
-                <span className="text-slate-400 font-normal">ba</span>
+                <span className="text-slate-600 font-normal">ba</span>
               </span>
             </div>
             <div className="flex items-center gap-1.5">
-              <Square className="w-4 h-4 text-slate-400" />
+              <Square className="w-4 h-4 text-slate-500" />
               <span className="text-xs font-bold">
                 {formatArea(property.details.sqft)}
               </span>
             </div>
           </div>
 
-          <div className="flex justify-between items-center text-[10px] text-slate-400 font-bold uppercase tracking-widest">
+          <div className="flex justify-between items-center text-[10px] sm:text-xs text-slate-600 font-bold uppercase tracking-wider sm:tracking-widest">
             <span>Listed {property.daysOnMarket} days ago</span>
             {region.idxEnabled && property.financials.mlsNumber && (
               <span>#{property.financials.mlsNumber}</span>
@@ -220,30 +220,38 @@ export default function PropertyCard({
           </div>
         </CardContent>
 
-        <CardFooter className="p-5 pt-0 grid grid-cols-2 gap-3">
-          <Button
-            variant="secondary"
-            size="sm"
-            className="w-full"
-            onClick={(e) => {
-              if (onSelect) {
+        <CardFooter className="p-4 sm:p-5 pt-0 grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-3">
+          {onSelect ? (
+            <Button
+              variant="secondary"
+              size="sm"
+              className="w-full min-h-11"
+              onClick={(e) => {
                 e.preventDefault();
                 onSelect();
-              }
-            }}
-          >
-            {onSelect ? (
-              "View Details"
-            ) : (
+              }}
+            >
+              View Details
+            </Button>
+          ) : (
+            <Button
+              asChild
+              variant="secondary"
+              size="sm"
+              className="w-full min-h-11"
+            >
               <Link href={`/listings/${property.slug}`}>View Details</Link>
-            )}
-          </Button>
+            </Button>
+          )}
           <Button
+            asChild
             variant="default"
             size="sm"
-            className="w-full"
+            className="w-full min-h-11"
           >
-            {region.inspectionLabel}
+            <Link href={`/listings/${property.slug}#showing`}>
+              {region.inspectionLabel}
+            </Link>
           </Button>
         </CardFooter>
       </Card>

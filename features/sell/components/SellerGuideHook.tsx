@@ -66,11 +66,11 @@ export default function SellerGuideHook() {
   const roiMultiple = totalCost > 0 ? (totalLift / totalCost).toFixed(1) : "0.0";
 
   return (
-    <section className="py-24 bg-[#f9f6f0] border-t border-slate-200/50 relative overflow-hidden">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#f9f6f0] border-t border-slate-200/50 relative overflow-hidden">
       {/* Decorative background accents (Conforming to strictly solid colors) */}
       <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-slate-200/10 rounded-full blur-3xl pointer-events-none" />
 
-      <div className="container mx-auto px-6 lg:px-12 max-w-6xl relative z-10">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl relative z-10">
         <div className="text-center max-w-3xl mx-auto space-y-4 mb-16">
           <div className="flex justify-center items-center gap-2">
             <div className="h-[1px] w-6 bg-[#c9a96e]" />
@@ -119,15 +119,15 @@ export default function SellerGuideHook() {
 
                     {/* Meta Detail */}
                     <div className="space-y-1.5 flex-grow pr-4">
-                      <div className="flex justify-between items-center">
+                      <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-1.5 sm:gap-4">
                         <h4 className="font-semibold text-[#1a2744] text-sm md:text-base font-sans tracking-tight">
                           {option.label}
                         </h4>
-                        <span className="text-[11px] font-medium text-[#c9a96e] bg-[#c9a96e]/10 px-2 py-0.5 font-sans">
+                        <span className="text-[10px] sm:text-[11px] font-medium text-[#c9a96e] bg-[#c9a96e]/10 px-2 py-0.5 font-sans w-fit">
                           Cost: {formatPrice(option.cost)}
                         </span>
                       </div>
-                      <p className="text-slate-500 font-light text-[11px] md:text-xs leading-relaxed font-sans">
+                      <p className="text-slate-500 font-light text-[11px] md:text-xs leading-relaxed font-sans mt-1">
                         {option.description}
                       </p>
                     </div>

@@ -276,6 +276,7 @@ export default function MapView({
                       alt={property.address.street}
                       fill
                       className="object-cover"
+                      sizes="256px"
                     />
                     <div className="absolute top-2 left-2 px-2 py-0.5 text-[8px] font-bold uppercase tracking-widest text-white bg-black/40 backdrop-blur-md rounded-sm">
                       {property.status}

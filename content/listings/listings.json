@@ -117,6 +117,10 @@
       "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=800&q=80",
       "https://images.unsplash.com/photo-1600121848594-d86cc4f595e7?w=800&q=80"
     ],
+    "openHouse": {
+      "date": "2026-06-06",
+      "time": "2:00 PM - 5:00 PM"
+    },
     "daysOnMarket": 5,
     "listedDate": "2026-05-11"
   },
@@ -172,6 +176,10 @@
       "https://images.unsplash.com/photo-1484154218962-a197022b5858?w=800&q=80",
       "https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&q=80"
     ],
+    "openHouse": {
+      "date": "2026-06-07",
+      "time": "12:00 PM - 3:00 PM"
+    },
     "daysOnMarket": 8,
     "listedDate": "2026-05-08"
   },

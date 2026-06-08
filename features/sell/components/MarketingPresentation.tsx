@@ -8,8 +8,8 @@ import { Button } from "@/components/ui/button";
 
 export default function MarketingPresentation() {
   return (
-    <section className="py-24 bg-[#f9f6f0] border-b border-slate-200/50">
-      <div className="container mx-auto px-6 lg:px-12 max-w-5xl text-center space-y-8">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#f9f6f0] border-b border-slate-200/50">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl text-center space-y-8">
         <div className="space-y-3">
           <div className="flex justify-center items-center gap-2">
             <div className="h-[1px] w-6 bg-[#c9a96e]" />

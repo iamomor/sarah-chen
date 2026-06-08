@@ -43,6 +43,7 @@ export default function AgentSidebarCard({
             alt={agentConfig.name}
             fill
             className="object-cover"
+            sizes="80px"
           />
         </div>
         <div>

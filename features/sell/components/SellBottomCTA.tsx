@@ -9,9 +9,9 @@ import { Button } from "@/components/ui/button";
 
 export default function SellBottomCTA() {
   return (
-    <section className="py-28 bg-[#1a2744] text-center border-t border-white/10 relative overflow-hidden">
+    <section className="py-14 sm:py-20 lg:py-24 bg-[#1a2744] text-center border-t border-white/10 relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/carbon-fibre.png')] opacity-5 pointer-events-none" />
-      <div className="container mx-auto px-6 relative z-10 max-w-4xl space-y-8">
+      <div className="container mx-auto px-6 sm:px-8 lg:px-12 max-w-7xl relative z-10 space-y-8">
         <div className="flex justify-center items-center gap-3">
           <div className="h-[1px] w-8 bg-[#c9a96e]" />
           <span className="text-[10px] font-bold uppercase tracking-[0.4em] text-[#c9a96e] font-sans">
@@ -29,7 +29,7 @@ export default function SellBottomCTA() {
         <div className="pt-4">
           <Button 
             asChild 
-            className="w-full sm:w-auto border-2 border-[#c9a96e] bg-transparent text-[#c9a96e] hover:bg-[#c9a96e] hover:text-[#1a2744] rounded-none px-10 py-7 h-auto text-[11px] font-medium tracking-[0.2em] uppercase transition-all duration-300 shadow-none font-sans"
+            className="w-full sm:w-auto border-2 border-[#c9a96e] bg-transparent text-[#c9a96e] hover:bg-[#c9a96e] hover:text-[#1a2744] rounded-none px-6 py-4.5 sm:px-10 sm:py-6 h-auto text-[10px] sm:text-[11px] font-medium tracking-[0.2em] uppercase transition-all duration-300 shadow-none font-sans"
           >
             <Link href={agentConfig.bookingUrl}>
               Schedule a Free Seller Consultation <ArrowRight className="ml-2 h-4 w-4" />
